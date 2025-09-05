@@ -1,0 +1,106 @@
+{
+	"bsonType": "object",
+	"required": [
+		"name",
+		"category_id",
+		"sku"
+	],
+	"permission": {
+		"read": true,
+		"create": false,
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "存储文档 ID（商品 ID），系统自动生成"
+		},
+		"category_id": {
+			"bsonType": "string",
+			"description": "分类 id",
+			"foreignKey": "JLJ-mall-category._id"
+		},		
+		"name": {
+			"bsonType": "string",
+			"description": "商品名称",
+			"title": "名称",
+			"trim": "both"
+		},
+		"sku":{
+			"bsonType": "array",
+			"arrayType": "object",
+			"description": "sku规格",			
+			"properties":{
+				"_id":{
+					"bsonType": "string",
+					"description": "sku唯一id"
+				},
+				"name":{
+					"bsonType": "string",
+					"description": "sku名称"
+				},
+				"price":{
+					"bsonType": "int",
+					"description": "现价，单位：分"
+				},
+				"market_price":{
+					"bsonType": "int",
+					"description": "原价，单位：分"
+				},
+				"sort":{
+					"bsonType": "int",
+					"description": "sku排序"
+				},
+				"weight":{
+					"bsonType": "int",
+					"description": "重量，单位：克",
+					"defaultValue":500
+				},
+				"status":{
+					"bsonType": "bool",
+					"description": "状态",
+					"defaultValue":true
+				}
+			}
+		},
+		"goods_desc": {
+			"bsonType": "string",
+			"description": "商品详细描述",
+			"title": "详细描述",
+			"trim": "both"
+		},		
+		"goods_banner_imgs": {
+			"bsonType": "array",
+			"description": "商品详情页的banner图地址",
+			"defaultValue":[]
+		},		
+		"total_sell_count": {
+			"bsonType": "int",
+			"description": "总销量"
+		},	
+		"is_on_sale": {
+			"bsonType": "bool",
+			"description": "是否上架销售",
+			"title": "是否上架"
+		},
+		"is_hot": {
+			"bsonType": "bool",
+			"description": "是否热销"
+		},
+		"create_date": {
+			"bsonType": "timestamp",
+			"description": "创建时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		},
+		"last_modify_date": {
+			"bsonType": "timestamp",
+			"description": "最后修改时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		}		
+	},
+	"version": "0.0.1"
+}

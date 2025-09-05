@@ -1,0 +1,8 @@
+# 依赖包目录
+node_modules/
+.uni_modules/
+
+# 构建输出目录
+dist/
+build/
+unpackage/

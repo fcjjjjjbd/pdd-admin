@@ -1,0 +1,91 @@
+{
+  "id": "xxm-cropper-image",
+  "displayName": "xxm-cropper-image图片裁剪弹窗组件",
+  "version": "2.0.1",
+  "description": "咸虾米针对uniadmin后台管理，开发的好用的图片选择并可以按照比例缩放裁剪的vue3组件",
+  "keywords": [
+    "图片裁剪",
+    "头像裁剪",
+    "uniadmin",
+    "咸虾米",
+    "xxm-cropper-image"
+],
+  "repository": "",
+  "engines": {
+    "HBuilderX": "^4.01"
+  },
+  "dcloudext": {
+    "type": "component-vue",
+    "sale": {
+      "regular": {
+        "price": "0.00"
+      },
+      "sourcecode": {
+        "price": "0.00"
+      }
+    },
+    "contact": {
+      "qq": "513894357"
+    },
+    "declaration": {
+      "ads": "无",
+      "data": "无",
+      "permissions": "无"
+    },
+    "npmurl": ""
+  },
+  "dependencies":{
+	 "vue-cropper": "^1.1.4" 
+  },
+  "uni_modules": {
+    "dependencies": [],
+    "encrypt": [],
+    "platforms": {
+      "cloud": {
+        "tcb": "y",
+        "aliyun": "y",
+        "alipay": "y"
+      },
+      "client": {
+        "Vue": {
+          "vue2": "n",
+          "vue3": "y"
+        },
+        "App": {
+            "app-vue": "n",
+            "app-nvue": "n",
+            "app-uvue": "n",
+            "app-harmony": "u"
+        },
+        "H5-mobile": {
+          "Safari": "u",
+          "Android Browser": "u",
+          "微信浏览器(Android)": "u",
+          "QQ浏览器(Android)": "u"
+        },
+        "H5-pc": {
+          "Chrome": "y",
+          "IE": "u",
+          "Edge": "u",
+          "Firefox": "u",
+          "Safari": "u"
+        },
+        "小程序": {
+          "微信": "u",
+          "阿里": "u",
+          "百度": "u",
+          "字节跳动": "u",
+          "QQ": "u",
+          "钉钉": "u",
+          "快手": "u",
+          "飞书": "u",
+          "京东": "u"
+        },
+        "快应用": {
+          "华为": "u",
+          "联盟": "u"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "demoFn",
+  "dependencies": {
+    "xxm-wx-crypto": "file:../../../uni_modules/xxm-wx-crypto/uniCloud/cloudfunctions/common/xxm-wx-crypto",
+    "utils": "file:../common/utils"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

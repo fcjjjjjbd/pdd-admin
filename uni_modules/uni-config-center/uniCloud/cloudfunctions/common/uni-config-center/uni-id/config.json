@@ -1,0 +1,68 @@
+{
+  "passwordSecret": [{
+    "type": "hmac-sha256",
+    "version": 1,
+    "value": "yyyyyyy!@#"
+  }],
+  "passwordStrength": "weak",
+  "tokenSecret": "yyyyyyy!@#",
+  "tokenExpiresIn": 72000000000,
+  "tokenExpiresThreshold": 600,
+  "passwordErrorLimit": 6,
+  "bindTokenToDevice": false,
+  "passwordErrorRetryTime": 3600,
+  "autoSetInviteCode": false,
+  "forceInviteCode": false,
+  "preferedAppPlatform": "app",
+  "app": {
+    "tokenExpiresIn": 2592000,
+    "oauth": {
+      "weixin": {
+        "appid": "",
+        "appsecret": ""
+      },
+      "apple": {
+        "bundleId": ""
+      }
+    }
+  },
+  "mp-weixin": {
+    "oauth": {
+      "weixin": {
+        "appid": "wx8e6e164b2cf51f88",
+        "appsecret": "b1ce55ca32161501348e38eda5149fd5"
+      }
+    }
+  },
+  "web": {
+    "oauth": {
+      "weixin-h5": {
+        "appid": "",
+        "appsecret": ""
+      }
+    }
+  },
+  "mp-alipay": {
+    "oauth": {
+      "alipay": {
+        "appid": "",
+        "privateKey": ""
+      }
+    }
+  },
+  "service": {
+    "sms": {
+      "name": "家在香溪郡小程序",
+      "codeExpiresIn": 180,
+      "scene": {
+        "login-by-sms": {
+          "templateId": "33036",
+          "codeExpiresIn": 300
+        }
+      }
+    },
+    "univerify": {
+      "appid": ""
+    }
+  }
+}

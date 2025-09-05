@@ -1,0 +1,44 @@
+const configCenter = require('uni-config-center/uni-id/config.json');
+const { appid, appsecret: secret } = configCenter['mp-weixin']['oauth']['weixin'];
+// AES256_GCM 对称密钥信息
+const aes_sn = '83c77a542ce4be19d4b319ec2edcc453';
+const aes_key = 'iR7UVcn5M4G1sy4gw/b40iqYkmTiNd3k1J5dyBlsJLw=';
+
+// RSA 非对称秘钥
+const rsa_sn = 'dad983633ee56b54f5e1d66421bfe0c4';
+const rsa_key = `-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAsE8UXO9S9n/iLSTCQa8OOW3jUjUn9RI0XxKMQJ9vmK0ElEH+
+NZO16NmKnU0SYPRcmvr+I92ZhVmmDxRwqLtYjR7BUt8s/KBMNPVyn5j5+w7IL9eH
+8j1rDGFm4ZzQw+Mt6YbEYw0ojhb5rWLFaLFhHQVe2YqHdblyqCBHNiiCUoeQf7XV
+zwaCq9BuSTDCC0q6kTabjQLMwQ7iqygI2QBQMhRenQgrdlUNbTEioifFtQnnIXHh
+aI5IGEDiQOHvSgnGCRQqo98rrFfwYc6H4NhjxVr8H402PyMcnLz9nhvIeXiauAWE
+Jt2wk7Rw/1ru+r0Gk+vw2dQEEynVDxrCbJdfBwIDAQABAoIBAQCO2nRIXM2e1r1/
+EHKpX9qpo6T1ngZTJr3yboffcI+uaDn2moYMCTPyiBktHR6QGk7ScB3tF4dlqd7I
+ByrFPI8iQNIpgJTl2EgG/P0z3XJm/nIreXo4R5VuAZmnojTxEyjHN5/2FdpPTsRc
+vVPwYRCrwAc7QmhBddI18Xlho278yGttkDE5uWG33jXz8Fr7GluMDjShso3pMPhy
+CVlgYUfgEzo0HddzzxNBokNS3KJUGxk8o/aBU/YWzTiwDECgN1X4qZA1kO5i68gE
+sd5gHeeSU5sd2+ylbro0kjV0/C+doYyLCXvULoBPTIqEmXm5uAuyvD0Pnz9ES7Wi
+kWczvZuZAoGBAOXknIhCfkjnTt/RRJCRKqn4SfRtLKE6jzKZT07Ptp+YrsIPTxgo
+FMN2u3JzD/RUvD8HYKYmzmkU38pPthGbS0WTAm8T2TSABFIvC1siDMjk/dDFnxlk
+EAmnyLZtXnuZJ7PFbcuUJcjBm7jXnziFl8Il3QdanDQXhTl6RZaitR0zAoGBAMRU
+r2QwU9pdFNu28jNcH14S3Psz/ggt1Ny2T6xcQ4XFxNghQA0S5HVKXKcoj4+dOWqb
+PEXNxLbYg6XqGWcwlCc5d3nHht1n1hWN6eMYTPpiWNBXzwZDSJHTK+SdS7DErSpm
+dx4A9+C8Gpc91mtkx4Va+1qx2fyUVrScVYCdCi7dAoGAeTzhGDMI6mWiAQMZx6vm
+9hBM4CybNsPtNOAJJSUByJT6xLjSG4k3ugVpwWfQ6CevxwWbAMTCYkRx6P20pQBi
+5+Qpim7LQ5ansLfCo2MHnwK0oF84Emnk01K61QpEo6YXfAUIbC5K5t7Dwu1juKkr
+aWYSdIhijE5DIhbLkC9qmGUCgYAxxiJ9LP9lQeny1gvLV5SgPfoGOaUyn6PynMnQ
+McfwlzYTcUKSzfJbhhG9UzwqNbsDuv1p2QQBMx0VKCdukNNOqnQOzLX1VcjhyAu+
+xj9lzx8jGs/ij5ZLWhUrrXEuDH62XCng0nAFasr3AvdkXLV0qp9E3Agez+C3g1bt
+92JIhQKBgQDlMw+499NoXAsOIxiGx2sZeLvHaSrAXlumwbtCrFsGO6QBkzq5zewF
+5ucqeoXDcVrKw6PK60YxM8AI72U/8Ly5dcTAh20rgabtRM0YHrv7inpCGUOBLvBm
+AXBDEinl0T7/hOl/D//TT43h9LcUu/Q9wBCgt6plNfg10AK7XsAISQ==
+-----END RSA PRIVATE KEY-----`;
+
+module.exports = {
+	appid,
+	secret,
+	aes_sn,
+	aes_key,
+	rsa_sn,
+	rsa_key
+};

@@ -1,0 +1,9 @@
+{
+  "name": "admin-product-category",
+  "dependencies": {
+    "utils": "file:../common/utils"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
