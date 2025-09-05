@@ -1,0 +1,75 @@
+{
+  "bsonType": "object",
+  "required": [],
+  "permission": {
+    "read": true,
+    "create": "auth.uid != null",
+    "update": "doc.user_id==auth.uid",
+    "delete": "doc.user_id==auth.uid"
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "title": {
+      "bsonType": "string",
+      "title": "标题",
+      "trim": "both"
+    },
+    "content": {
+      "bsonType": "string",
+      "title": "商品内容",
+      "trim": "both"
+    },
+
+    "addressobj": {
+      "title": "地址信息"
+    },
+    "category_id": {
+      "bsonType": "string",
+      "title": "分类id"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "作者ID， 参考`uni-id-users` 表",
+      "foreignKey": "uni-id-users._id",
+      "defaultValue": {
+        "$env": "uid"
+      }
+    },
+    "creattime": {
+      "bsonType": "timestamp",
+      "title": "发表订单时间",
+      "description": "发表时间"
+    },
+    "temptime": {
+      "bsonType": "timestamp",
+      "title": "过期订单时间"
+    },
+    "status": {
+      "bsonType": "int",
+      "title": "订单状态",
+      "defaultValue": 0,
+      "enum": [{
+          "value": 0,
+          "text": "进行中"
+        },
+        {
+          "value": 1,
+          "text": "已完成"
+        }
+      ]
+    },
+    "goods_thumb": {
+      "bsonType": "string",
+      "description": "用于在列表显示一个商品缩略图",
+      "title": "封面地址",
+      "pattern": "^(http://|https://|/|./|@/)\\S",
+      "trim": "both"
+    },
+    "imageValue": {
+      "bsonType": "array",
+      "description": "商品详情页的图片地址数组"
+    }
+  }
+}

@@ -140,7 +140,7 @@ getData();
 			<EditCategory 
 			@close="editDialog = false"
 			@success="()=>getData()"
-			:sort="tableData[tableData.length-1].sort"
+			:sort="tableData.length > 0 ? tableData[tableData.length-1].sort : 0"
 			:typeName="typeName"
 			:item="currentItem"
 			></EditCategory>

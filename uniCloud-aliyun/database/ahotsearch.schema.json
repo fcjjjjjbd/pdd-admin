@@ -1,0 +1,32 @@
+// 菜单导航
+{
+  "bsonType": "object",
+  "required": [],
+  "permission": {
+    "read": true,
+    "create": true,
+    "update": true,
+    "delete": true
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "name": {
+      "title": "热门搜索",
+      "description": "名称",
+      "bsonType": "string"
+    },
+    "sort": {
+      "title": "排序",
+      "description": "排序",
+      "bsonType": "int"
+    },
+    "state": {
+      "title": "上下架,暂时隐藏",
+      "bsonType": "bool",
+      "defaultValue": true
+    }
+
+  }
+}

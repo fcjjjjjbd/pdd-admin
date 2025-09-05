@@ -1,0 +1,54 @@
+{
+  "bsonType": "object",
+  "required": ["content"],
+  "permission": {
+    "read": true,
+    "create": true,
+    "update": true,
+    "delete": "doc.user_id==auth.uid"
+  },
+  "properties": {
+    "_id": {
+      "description": "存储文档 ID（用户 ID），系统自动生成"
+    },
+
+    "title": {
+      "bsonType": "string",
+      "description": "分类标题"
+    },
+
+    "user_id": {
+      "bsonType": "string",
+      "description": "作者ID， 参考`uni-id-users` 表",
+      "foreignKey": "uni-id-users._id",
+      "defaultValue": {
+        "$env": "uid"
+      }
+    },
+    "content": {
+      "bsonType": "string",
+      "title": "富文本",
+      "trim": "both"
+    },
+
+    "like_count": {
+      "bsonType": "int",
+      "description": "喜欢数、点赞数",
+      "defaultValue": 0
+    },
+    "comment_count": {
+      "bsonType": "int",
+      "description": "评论数量",
+      "defaultValue": 0
+    },
+
+    "publish_date": {
+      "bsonType": "timestamp",
+      "title": "发表时间",
+      "description": "发表时间",
+      "defaultValue": {
+        "$env": "now"
+      }
+    }
+  }
+}

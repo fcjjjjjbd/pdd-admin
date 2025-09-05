@@ -1,0 +1,15 @@
+{
+  "name": "goods-backend",
+  "dependencies": {
+    "uni-id-common": "file:../../../uni_modules/uni-id-common/uniCloud/cloudfunctions/common/uni-id-common",
+    "self-utils": "file:../common/self-utils"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  },
+  "cloudfunction-config": {
+    "triggers": [{
+      "config": "0 0 * * 1 * *"
+    }]
+  }
+}

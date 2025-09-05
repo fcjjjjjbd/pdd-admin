@@ -1,0 +1,37 @@
+// 代码组件分类
+{
+  "bsonType": "object",
+  "required": ["detail_id"],
+  "permission": {
+    "read": true,
+    "create": true,
+    "update": true,
+    "delete": true
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "detail_id": {
+      "bsonType": "string",
+      "description": "详情页id",
+      "foreignKey": "goods_detail._id"
+    },
+    "title": {
+      "bsonType": "string",
+      "description": "上门描述",
+      "trim": "both"
+    },
+
+    "sort": {
+      "bsonType": "int",
+      "title": "排序",
+      "description": "排序"
+    },
+    "price": {
+      "bsonType": "int",
+      "title": "排序",
+      "description": "排序"
+    }
+  }
+}

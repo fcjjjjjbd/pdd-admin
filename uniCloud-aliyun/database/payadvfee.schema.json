@@ -1,0 +1,48 @@
+{
+  "bsonType": "object",
+  "required": ["detail_id", "price"],
+  "permission": {
+    "read": true,
+    "create": "auth.uid != null",
+    "update": "doc.user_id == auth.uid",
+    "delete": "doc.user_id == auth.uid"
+  },
+  "properties": {
+    "_id": {
+      "description": "存储文档 ID（文章 ID），系统自动生成"
+    },
+    "fenlei_id": {
+      "bsonType": "string",
+      "description": "分类ID,一个订单详情"
+    },
+    "price": {
+      "bsonType": "int",
+      "title": "价格",
+      "trim": "right"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "师傅ID，参考`uni-id-users` 表",
+      "forceDefaultValue": {
+        "$env": "uid"
+      },
+      "foreignKey": "uni-id-users._id"
+    },
+    "content": {
+      "bsonType": "string",
+      "description": "订单备注",
+      "title": "评论内容",
+      "trim": "right"
+    },
+
+    "nowtime": {
+      "bsonType": "timestamp",
+      "description": "订单发表时间",
+      "forceDefaultValue": {
+        "$env": "now"
+      }
+    }
+
+  },
+  "version": "0.0.1"
+}

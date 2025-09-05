@@ -1,0 +1,63 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+{
+  "bsonType": "object",
+  "required": ["address"],
+  "permission": {
+    "read": true,
+    "create": true,
+    "update": "doc.user_id == auth.uid",
+    "delete": "doc.user_id == auth.uid"
+  },
+
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "address": {
+      "bsonType": "string",
+      "title": "商家地址信息",
+      "trim": "both"
+    },
+    "selected": {
+      "title": "是否推荐",
+      "bsonType": "bool",
+      "defaultValue": false
+    },
+    "time": {
+      "bsonType": "timestamp",
+      "title": "发表时间",
+      "description": "发表时间",
+      "defaultValue": {
+        "$env": "now"
+      }
+    },
+    "area_code": {
+      "bsonType": "string",
+      "title": "商家地址吗",
+      "trim": "both"
+    },
+    "area_name": {
+      "bsonType": "string",
+      "title": "商家地址信息",
+      "trim": "both"
+    },
+    "username": {
+      "bsonType": "string",
+      "title": "商家地址信息",
+      "trim": "both"
+    },
+    "phone": {
+      "bsonType": "int",
+      "title": "商家电话",
+      "trim": "both"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "作者ID， 参考`uni-id-users` 表",
+      "foreignKey": "uni-id-users._id",
+      "defaultValue": {
+        "$env": "uid"
+      }
+    }
+  }
+}

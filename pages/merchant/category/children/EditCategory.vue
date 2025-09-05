@@ -8,7 +8,7 @@ const formRef = ref(null);
 const loading = ref(false);
 const formData = ref({
 	name:"",	
-	sort:props.sort + 1,
+	sort:(props.sort || 0) + 1,
 	...props.item
 })
 

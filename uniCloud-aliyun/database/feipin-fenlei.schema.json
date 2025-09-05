@@ -1,0 +1,28 @@
+// 代码组件分类
+{
+  "bsonType": "object",
+  "required": [],
+  "permission": {
+    "read": true,
+    "create": true,
+    "update": true,
+    "delete": true
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "name": {
+      "bsonType": "string",
+      "title": "分类",
+      "description": "分类",
+      "trim": "both"
+    },
+
+    "sort": {
+      "bsonType": "int",
+      "title": "排序",
+      "description": "排序"
+    }
+  }
+}
