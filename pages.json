@@ -168,11 +168,18 @@
 			}
 		},
 		{
+			"path": "pages/goods/category-1/list",
+			"style": {
+				"navigationBarTitleText": "1级分类列表"
+			}
+		},
+		{
 			"path": "pages/goods/category/list",
 			"style": {
 				"navigationBarTitleText": "分类列表"
 			}
 		},
+		
 		{
 			"path": "pages/goods/product/list",
 			"style": {

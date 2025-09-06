@@ -8,8 +8,10 @@
     "uni-cloud-jql": {}
   },
   "cloudfunction-config": {
-    "triggers": [{
-      "config": "0 0 * * 1 * *"
-    }]
+    "triggers": [
+      {
+        "config": "0 0 * * 1 * *"
+      }
+    ]
   }
 }

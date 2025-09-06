@@ -1,10 +1,14 @@
 //  商品后端
-const utils = require("self-utils");
+let dbJQL = uniCloud.databaseForJQL()
 const db = uniCloud.database();
 
 module.exports = {
-  _before: async function () {
-    this.userInfo = await utils.getUserInfo(this);
+  _before: async function() {
+    const clientInfo = this.getClientInfo();
+    dbJQL = uniCloud.databaseForJQL({
+      clientInfo
+    })
+
   },
   // 明码标价分类的显示
   async getmmbj(parms) {
