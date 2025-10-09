@@ -1,0 +1,37 @@
+[{
+	"icon": "iconfont icon-home-fill",
+	"name": "首页"
+},{
+	"icon": "iconfont icon-safetycertificate-f",
+	"name": "安全审计"
+},{
+	"icon": "icon-solution iconfont",
+	"name": "用户日志"
+},{
+	"icon": "icon-desktop iconfont",
+	"name": "应用管理"
+},{
+	"icon": "iconfont icon-setting-fill",
+	"name": "系统管理"
+},{
+	"icon": "icon-menu iconfont",
+	"name": "菜单管理"
+},{
+	"icon": "icon-audit iconfont",
+	"name": "权限管理"
+},{
+	"icon": "icon-apartment iconfont",
+	"name": "角色管理"
+},{
+	"icon": "icon-tags iconfont",
+	"name": "标签管理"
+},{
+	"icon": "icon-cloud-upload iconfont",
+	"name": "App升级中心"
+},{
+	"icon": "iconfont icon-team",
+	"name": "用户管理"
+},{
+	"icon": "iconfont icon-areachart",
+	"name": "uni 统计"
+}]

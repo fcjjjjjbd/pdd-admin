@@ -1,0 +1,93 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": "auth.uid != null",
+		"create": false,
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"name": {
+			"bsonType": "string",
+			"title": "名称"
+		},
+		"is_default": {
+			"bsonType": "bool",
+			"title": "是否是默认运费模板",
+			"defaultValue": false
+		},
+		"rules": {
+			"bsonType": "object",
+			"title": "运费计算规则",
+			"properties": {
+				"first_weight": {
+					"bsonType": "int",
+					"title": "首重/首件"
+				},
+				"first_weight_price": {
+					"bsonType": "int",
+					"title": "首重/首件价格，单位分"
+				},
+				"continuous_weight": {
+					"bsonType": "int",
+					"title": "续重"
+				},
+				"continuous_weight_price": {
+					"bsonType": "int",
+					"title": "续重价格，单位分"
+				}
+			}
+		},
+		"remote": {
+			"bsonType": "array",
+			"title": "偏远运费计算规则",
+			"properties": {
+				"code": {
+					"bsonType": "string",
+					"title": "偏远地区编码"
+				},
+				"rules": {
+					"bsonType": "object",
+					"title": "偏远运费计算规则",
+					"properties": {
+						"first_weight": {
+							"bsonType": "int",
+							"title": "首重/首件"
+						},
+						"first_weight_price": {
+							"bsonType": "int",
+							"title": "首重/首件价格，单位分"
+						},
+						"continuous_weight": {
+							"bsonType": "int",
+							"title": "续重"
+						},
+						"continuous_weight_price": {
+							"bsonType": "int",
+							"title": "续重价格，单位分"
+						}
+					}
+				}
+			}
+		},
+		"create_date": {
+			"bsonType": "timestamp",
+			"description": "创建时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		},
+		"last_modify_date": {
+			"bsonType": "timestamp",
+			"description": "最后修改时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		}
+	}
+}

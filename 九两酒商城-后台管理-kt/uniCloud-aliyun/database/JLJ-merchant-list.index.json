@@ -1,0 +1,11 @@
+[{
+	"IndexName": "location",
+	"MgoKeySchema": {
+		"MgoIndexKeys": [{
+			"Name": "location",
+			"Direction": "2dsphere",
+			"Type": "point"
+		}],
+		"MgoIsUnique": false
+	}
+}]

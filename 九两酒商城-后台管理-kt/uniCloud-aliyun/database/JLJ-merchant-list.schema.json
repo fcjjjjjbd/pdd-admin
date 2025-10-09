@@ -1,0 +1,98 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+{
+	"bsonType": "object",
+	"required": ["name", "phone", "store", "category_id", "area", "address", "location"],
+	"permission": {
+		"read": true,
+		"create": "auth.uid != null",
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"name": {
+			"bsonType": "string",
+			"description": "用户姓名",
+			"defaultValue": ""
+		},
+		"phone": {
+			"bsonType": "string",
+			"description": "手机号码",
+			"defaultValue": ""
+		},
+		"store": {
+			"bsonType": "string",
+			"description": "商家名称",
+			"trim": "both",
+			"defaultValue": ""
+		},
+		"category_id": {
+			"bsonType": "string",
+			"description": "商家分类",
+			"foreignKey": "JLJ-merchant-category._id"
+		},
+		"area": {
+			"bsonType": "array",
+			"description": "地区",
+			"defaultValue": []
+		},
+		"address": {
+			"bsonType": "string",
+			"description": "商家详细地址",
+			"defaultValue": ""
+		},
+		"house": {
+			"bsonType": "string",
+			"description": "楼号/门牌号",
+			"defaultValue": ""
+		},
+		"location": {
+			"bsonType": "object",
+			"description": "地理位置"
+		},
+		"state": {
+			"bsonType": "int",
+			"description": "审核状态",
+			"defaultValue": 0 //0审核中 1审核通过 2停运
+		},
+		"user_id": {
+			"bsonType": "string",
+			"description": "用户ID， 参考`uni-id-users` 表",
+			"foreignKey": "uni-id-users._id",
+			"defaultValue": {
+				"$env": "uid"
+			}
+		},
+		"pics": {
+			"bsonType": "array",
+			"description": "商家图片",
+			"defaultValue": []
+		},
+		"video": {
+			"bsonType": "string",
+			"description": "商家视频",
+			"defaultValue": ""
+		},
+		"wx_store_id": {
+			"bsonType": "string",
+			"description": "微信同城配送商户id,由微信提供",
+			"defaultValue": ""
+		},
+		"create_date": {
+			"bsonType": "timestamp",
+			"description": "创建时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		},
+		"last_modify_date": {
+			"bsonType": "timestamp",
+			"description": "最后修改时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		}
+	}
+}

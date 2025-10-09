@@ -1,0 +1,139 @@
+[{
+		"is_default": true,
+		"create_date": 1757839270163,
+		"last_modify_date": 1757840292029,
+		"name": "按重量计算运费",
+		"rules": {
+			"first_weight": 2000,
+			"first_weight_price": 1000,
+			"continuous_weight": 1000,
+			"continuous_weight_price": 500
+		},
+		"remote": [{
+			"code": "540000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 3000,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 1500
+			}
+		}, {
+			"code": "650000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 3000,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 1500
+			}
+		}, {
+			"code": "630000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 2500,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 1300
+			}
+		}, {
+			"code": "150000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 2000,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 1200
+			}
+		}, {
+			"code": "620000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 2000,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 1100
+			}
+		}, {
+			"code": "640000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 2000,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 1000
+			}
+		}, {
+			"code": "710000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 4000,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 2000
+			}
+		}]
+	},
+	{
+		"is_default": false,
+		"create_date": 1757839270163,
+		"last_modify_date": 1757839270163,
+		"name": "按重量包邮模板",
+		"rules": {
+			"first_weight": 2000,
+			"first_weight_price": 0,
+			"continuous_weight": 1000,
+			"continuous_weight_price": 500
+		},
+		"remote": [{
+			"code": "540000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 0,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 1500
+			}
+		}, {
+			"code": "650000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 0,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 1500
+			}
+		}, {
+			"code": "630000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 0,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 1300
+			}
+		}, {
+			"code": "150000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 0,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 1200
+			}
+		}, {
+			"code": "620000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 0,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 1100
+			}
+		}, {
+			"code": "640000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 0,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 1000
+			}
+		}, {
+			"code": "710000",
+			"rules": {
+				"first_weight": 2000,
+				"first_weight_price": 0,
+				"continuous_weight": 1000,
+				"continuous_weight_price": 2000
+			}
+		}]
+	}
+]

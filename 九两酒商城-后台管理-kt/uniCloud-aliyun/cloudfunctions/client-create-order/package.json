@@ -1,0 +1,10 @@
+{
+  "name": "client-create-order",
+  "dependencies": {
+    "utils": "file:../common/utils",
+    "xxm-wx-crypto": "file:../../../uni_modules/xxm-wx-crypto/uniCloud/cloudfunctions/common/xxm-wx-crypto"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

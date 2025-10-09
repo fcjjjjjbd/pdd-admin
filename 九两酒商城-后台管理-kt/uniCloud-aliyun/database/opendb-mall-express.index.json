@@ -1,0 +1,15 @@
+[
+	{
+		"IndexName": "is_default",
+		"MgoKeySchema": {
+			"MgoIndexKeys": [
+				{
+					"Name": "is_default",
+					"Direction": "1",
+					"Type": "bool"
+				}
+			],
+			"MgoIsUnique": false
+		}
+	}
+]

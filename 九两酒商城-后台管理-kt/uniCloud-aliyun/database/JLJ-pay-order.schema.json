@@ -1,0 +1,267 @@
+{
+	"bsonType": "object",
+	"required": [
+
+	],
+	"permission": {
+		"read": "auth.uid != null",
+		"create": "auth.uid != null",
+		"update": "auth.uid != null",
+		"delete": "auth.uid != null"
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"payment_method": {
+			"title": "支付方式",
+			"bsonType": "int",
+			"description": "0真实支付，1积分支付",
+			"defaultValue": 0
+		},
+		"order_status": {
+			"title": "订单状态",
+			"bsonType": "int",
+			"enum": [{
+				"text": "已关闭",
+				"value": -1
+			}, {
+				"text": "待付款",
+				"value": 0
+			}, {
+				"text": "待发货",
+				"value": 1
+			}, {
+				"text": "待取货",
+				"value": 2
+			}, {
+				"text": "待收货",
+				"value": 3
+			}, {
+				"text": "退款",
+				"value": 4
+			}, {
+				"text": "完成",
+				"value": 5
+			}],
+			"description": "订单状态 -1 已关闭 0：待付款 1：待发货 2：待取货 3：待收货 4：退款 5：完成",
+			"defaultValue": 0
+		},
+		"order_no": {
+			"title": "业务系统订单号",
+			"bsonType": "string",
+			"minLength": 20,
+			"maxLength": 28,
+			"description": "业务系统订单号，控制在20-28位（不可以是24位,24位在阿里云空间可能会有问题，可重复，代表1个业务订单会有多次付款的情况）",
+			"trim": "both"
+		},
+		"out_trade_no": {
+			"title": "支付插件订单号",
+			"bsonType": "string",
+			"description": "支付插件订单号（需控制唯一，不传则由插件自动生成）",
+			"trim": "both"
+		},
+		"transaction_id": {
+			"title": "交易单号",
+			"bsonType": "string",
+			"description": "交易单号（支付平台订单号，由支付平台控制唯一）",
+			"trim": "both"
+		},
+		"user_id": {
+			"title": "用户ID",
+			"bsonType": "string",
+			"description": "用户id，参考uni-id-users表",
+			"foreignKey": "uni-id-users._id",
+			"forceDefaultValue": {
+				"$env": "uid"
+			}
+		},
+		"openid": {
+			"title": "openid",
+			"bsonType": "string",
+			"description": "发起支付的用户openid",
+			"trim": "both"
+		},
+		"description": {
+			"title": "支付描述",
+			"bsonType": "string",
+			"description": "支付描述，如：uniCloud个人版包月套餐",
+			"trim": "both"
+		},
+		"total_fee": {
+			"title": "订单总金额",
+			"bsonType": "int",
+			"description": "订单总金额，单位为分，100等于1元"
+		},
+		"transport_fee": {
+			"bsonType": "int",
+			"description": "配送费"
+		},
+		"goods_price": {
+			"bsonType": "int",
+			"description": "获取最终付款额和原价，用于计算积分使用"
+		},
+		"refund_fee": {
+			"title": "订单总退款金额",
+			"bsonType": "int",
+			"description": "订单总退款金额，单位为分，100等于1元"
+		},
+		"refund_count": {
+			"title": "当前退款笔数",
+			"bsonType": "int",
+			"description": "当前退款笔数 (退款单号为 out_trade_no-refund_count)"
+		},
+		"refund_list": {
+			"title": "退款详情",
+			"bsonType": "array",
+			"description": "退款详情"
+		},
+		"provider_appid": {
+			"title": "开放平台appid",
+			"bsonType": "string",
+			"description": "公众号appid，小程序appid，app开放平台appid 等",
+			"trim": "both"
+		},
+		"custom": {
+			"title": "自定义数据",
+			"bsonType": "object",
+			"description": "自定义数据（用户自定义数据）"
+		},
+		"goods_list": {
+			"title": "商品列表",
+			"bsonType": "array",
+			"defaultValue": [],
+			"properties": {
+				"goods_id": {
+					"bsonType": "string",
+					"description": "下单商品id",
+					"foreignKey": "JLJ-mall-goods._id"
+				},
+				"goods_name": {
+					"bsonType": "string",
+					"description": "下单商品名称"
+				},
+				"sku_id": {
+					"bsonType": "string",
+					"description": "下单规格id"
+				},
+				"sku_name": {
+					"bsonType": "string",
+					"description": "下单规格名称"
+				},
+				"price": {
+					"bsonType": "int",
+					"description": "价格"
+				},
+				"weight": {
+					"bsonType": "int",
+					"description": "重量"
+				}
+			}
+		},
+		"delivery_type": {
+			"title": "取货方式",
+			"bsonType": "int",
+			"description": "0：自提 1：同城\/快递",
+			"defaultValue": 0
+		},
+		"self_take_info": {
+			"title": "自提信息",
+			"bsonType": "object",
+			"description": "提货人电话，提货时间，提货地址等",
+			"properties": {
+				"user_phone": {
+					"bsonType": "string",
+					"description": "收货人电话"
+				},
+				"user_time": {
+					"bsonType": "string",
+					"description": "提货时间"
+				},
+				"merchant_id": {
+					"bsonType": "string",
+					"description": "提货地址id"
+				},
+				"merchant_address": {
+					"bsonType": "string",
+					"description": "提货详细地址"
+				}
+			}
+		},
+		"transport_info": {
+			"title": "配送信息",
+			"bsonType": "object",
+			"description": "收货人相关信息",
+			"properties": {
+				"type": {
+					"bsonType": "int",
+					"description": "同城或快递0同城1快递"
+				},
+				"merchant_id": {
+					"bsonType": "string",
+					"description": "商家id"
+				},
+				"merchant_address": {
+					"bsonType": "string",
+					"description": "提货详细地址"
+				},
+				"wx_store_id": {
+					"bsonType": "string",
+					"description": "微信同城发货商家id"
+				},
+				"user_address": {
+					"bsonType": "string",
+					"description": "详细收货地址"
+				},
+				"user_name": {
+					"bsonType": "string",
+					"description": "收货人姓名"
+				},
+				"user_phone": {
+					"bsonType": "string",
+					"description": "收货人电话"
+				},
+				"user_area": {
+					"bsonType": "array",
+					"description": "区域"
+				},
+				"user_location": {
+					"bsonType": "object",
+					"description": "用户坐标"
+				},
+				"cargo": {
+					"bsonType": "object",
+					"description": "商品信息,cargo_name商品名称 cargo_type商品类型 cargo_num商品数量 cargo_price商品总价格 cargo_weight商品总重量"
+				},
+				"waybill_id": {
+					"bsonType": "string",
+					"description": "配送单号"
+				}
+			}
+		},
+		"create_date": {
+			"title": "创建时间",
+			"bsonType": "timestamp",
+			"description": "创建时间",
+			"forceDefaultValue": {
+				"$env": "now"
+			}
+		},
+		"pay_date": {
+			"title": "支付时间",
+			"bsonType": "timestamp",
+			"description": "支付时间"
+		},
+		"notify_date": {
+			"title": "异步通知时间",
+			"bsonType": "timestamp",
+			"description": "订单通知支付成功时间"
+		},
+		"cancel_date": {
+			"title": "取消时间",
+			"bsonType": "timestamp",
+			"description": "订单取消时间"
+		}
+	},
+	"version": "0.0.1"
+}
