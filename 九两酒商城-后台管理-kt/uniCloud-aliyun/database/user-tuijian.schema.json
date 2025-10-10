@@ -1,0 +1,61 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+{
+  "bsonType": "object",
+  "required": [],
+  "permission": {
+    "read": true,
+    "create": "auth.uid != null",
+    "update": "doc.user_id==auth.uid",
+    "delete": "doc.user_id==auth.uid"
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "文章作者ID， 参考`uni-id-users` 表",
+      "foreignKey": "uni-id-users._id",
+      "defaultValue": {
+        "$env": "uid"
+      }
+    },
+
+    "status": {
+      "bsonType": "int",
+      "title": "审核状态",
+      "defaultValue": 0,
+      "enum": [
+        {
+          "value": 0,
+          "text": "审核中"
+        },
+        {
+          "value": 1,
+          "text": "审核通过"
+        },
+        {
+          "value": 2,
+          "text": "审核不通过"
+        }
+      ]
+    },
+    "job": {
+      "bsonType": "string",
+      "title": "什么工作",
+      "trim": "both"
+    },
+    "phone": {
+      "bsonType": "string",
+      "title": "电话或微信",
+      "trim": "both"
+    },
+    "createTime": {
+      "bsonType": "timestamp",
+      "title": "发布时间",
+      "defaultValue": {
+        "$env": "now"
+      }
+    }
+  }
+}

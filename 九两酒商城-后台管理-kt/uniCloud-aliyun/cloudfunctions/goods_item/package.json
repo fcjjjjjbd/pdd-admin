@@ -1,0 +1,12 @@
+{
+  "name": "goods_item",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  },
+  "cloudfunction-config": {
+    "triggers": [{
+      "config": "0 0 0 */2 * * *"
+    }]
+  }
+}

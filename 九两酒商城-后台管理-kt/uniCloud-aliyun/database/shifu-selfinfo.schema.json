@@ -1,0 +1,38 @@
+// 文档教程: shifu-selfinfo
+{
+  "bsonType": "object",
+  "required": [],
+  "permission": {
+    "read": true,
+    "create": true,
+    "update": "doc.user_id == auth.uid",
+    "delete": "doc.user_id == auth.uid"
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "name": {
+      "bsonType": "string",
+      "title": "名字",
+      "trim": "both"
+    },
+    "about": {
+      "bsonType": "string",
+      "title": "内容",
+      "trim": "both"
+    },
+
+    "mobile": {
+      "title": "电话"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "作者ID， 参考`uni-id-users` 表",
+      "foreignKey": "uni-id-users._id",
+      "defaultValue": {
+        "$env": "uid"
+      }
+    }
+  }
+}

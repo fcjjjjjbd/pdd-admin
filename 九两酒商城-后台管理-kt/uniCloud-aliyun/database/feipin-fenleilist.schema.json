@@ -1,0 +1,56 @@
+// 商城搜索列表
+{
+  "bsonType": "object",
+  "required": ["name"],
+  "permission": {
+    "read": true,
+    "create": "auth.uid != null",
+    "update": "auth.uid != null",
+    "delete": "auth.uid != null"
+  },
+  "properties": {
+    "_id": {
+      "description": "存储文档 ID（文章 ID），系统自动生成"
+    },
+    "name": {
+      "bsonType": "string",
+      "description": "名称",
+      "title": "名称",
+      "trim": "both"
+    },
+    "jinjia": {
+      "bsonType": "string",
+      "description": "进价详情`",
+      "trim": "both"
+    },
+    "shoujia": {
+      "bsonType": "string",
+      "description": "售价详情`",
+      "trim": "both"
+    },
+    "category_id": {
+      "bsonType": "string",
+      "title": "分类",
+      "description": "分类 id，参考`uni-news-categories`表",
+      "foreignKey": "feipin-fenlei._id",
+      "enum": {
+        "collection": "feipin-fenlei",
+        "orderBy": "sort asc",
+        "field": "title as text, _id as value"
+      }
+    },
+    "sort": {
+      "bsonType": "int",
+      "title": "排序",
+      "description": "类别排序"
+    },
+    "create_date": {
+      "bsonType": "timestamp",
+      "description": "创建时间",
+      "defaultValue": {
+        "$env": "now"
+      }
+    }
+  },
+  "version": "0.0.1"
+}
