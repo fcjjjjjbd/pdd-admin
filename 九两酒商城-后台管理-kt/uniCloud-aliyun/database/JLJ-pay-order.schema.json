@@ -111,10 +111,15 @@
 			"bsonType": "int",
 			"description": "当前退款笔数 (退款单号为 out_trade_no-refund_count)"
 		},
-		"refund_list": {
+		"refund_desc": {
 			"title": "退款详情",
-			"bsonType": "array",
+			"bsonType": "string",
 			"description": "退款详情"
+		},
+		"refund_date": {
+			"title": "退款时间",
+			"bsonType": "timestamp",
+			"description": "退款时间"
 		},
 		"provider_appid": {
 			"title": "开放平台appid",

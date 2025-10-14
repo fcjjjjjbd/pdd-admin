@@ -3,8 +3,16 @@ import { computed, ref, unref } from 'vue';
 import { ORDER_STATUS_ENUMS } from '@/utils/config.js';
 import { onLoad } from '@dcloudio/uni-app';
 import { formatPrice, formatStatus } from '../../utils/format';
+import { useOrder } from './hooks.js';
+import { routerTo } from '../../utils/common';
+const currStatus = ref(null);
+const paging = ref(null);
+const { handlePay, paySuccess, payRef, cancelPay, handleRefund, inputDialog, inputClose, inputValue, dialogInputConfirm, handleConfirm } = useOrder({ currStatus, paging });
 const orderCloudObj = uniCloud.importObject('client-self-order', { customUI: true });
 const dataList = ref([]);
+
+const orderMenus = ORDER_STATUS_ENUMS();
+
 const dataListShow = computed(() => {
 	return unref(dataList).map((item) => {
 		return {
@@ -25,9 +33,7 @@ const dataListShow = computed(() => {
 		};
 	});
 });
-const paging = ref(null);
-const currStatus = ref(null);
-const orderMenus = ORDER_STATUS_ENUMS();
+
 const queryList = async (pageCurrent, pageSize) => {
 	try {
 		let { errCode, data } = await orderCloudObj.list({ pageCurrent, pageSize, status: unref(currStatus) });
@@ -72,8 +78,8 @@ onLoad((e) => {
 						</view>
 						<view class="right">{{ formatStatus(item.order_status).text }}</view>
 					</view>
-					<view class="card-body">
-						<view class="item" v-for="goods in item.goods_list" :key="goods._id">
+					<view class="card-body" @click="routerTo(`/pages/my/orderDetail?out_trade_no=${item.out_trade_no}&id=${item._id}`)">
+						<view class="item" style="pointer-events: none" v-for="goods in item.goods_list" :key="goods._id">
 							<card-goods-info :info="goods" :type="5"></card-goods-info>
 						</view>
 					</view>
@@ -84,30 +90,36 @@ onLoad((e) => {
 						</view>
 						<view class="right">
 							<template v-if="[0].includes(item.order_status)">
-								<button class="btn">取消</button>
-								<button class="btn red">付款</button>
+								<button class="btn" @click="cancelPay(item._id)">取消</button>
+								<button class="btn red" @click="handlePay(item)">付款</button>
 							</template>
 							<template v-if="[1].includes(item.order_status)">
 								<button class="btn wechat" open-type="contact">催发货</button>
-								<button class="btn red">退款</button>
+								<button class="btn red" @click="handleRefund(item)">申请退款</button>
 							</template>
 							<template v-if="[2].includes(item.order_status)">
-								<button class="btn">确认取货</button>
-								<button class="btn red">退款</button>
+								<button class="btn" @click="handleConfirm(item)">确认取货</button>
+								<button class="btn red" @click="handleRefund(item)">申请退款</button>
 							</template>
 							<template v-if="[3].includes(item.order_status)">
-								<button class="btn">确认收货</button>
+								<button class="btn" @click="handleConfirm(item)">确认收货</button>
 							</template>
 							<template v-if="[4].includes(item.order_status)">
-								<view class="text">已退款 ￥{{ formatPrice(3322) }}</view>
-								<button class="btn red">审核中</button>
-								<button class="btn wechat" open-type="contact">联系商家</button>
+								<view class="text" v-if="item?.refund_fee">已退款 ￥{{ formatPrice(item.refund_fee) }}</view>
+								<template v-else>
+									<button class="btn red">审核中</button>
+									<button class="btn wechat" open-type="contact">联系商家</button>
+								</template>
 							</template>
 						</view>
 					</view>
 				</view>
 			</view>
 		</z-paging>
+		<uni-pay :toSuccessPage="false" ref="payRef" @success="paySuccess"></uni-pay>
+		<uni-popup ref="inputDialog" type="dialog">
+			<uni-popup-dialog ref="inputClose" mode="input" title="退款理由" v-model="inputValue" placeholder="请输入退款理由" @confirm="dialogInputConfirm"></uni-popup-dialog>
+		</uni-popup>
 	</view>
 </template>
 

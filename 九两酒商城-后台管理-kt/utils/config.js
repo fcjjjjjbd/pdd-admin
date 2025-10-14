@@ -1,11 +1,6 @@
 //订单状态
 export const ORDER_STATUS_ENUMS = () => [
 	{
-		text: '全部',
-		value: null,
-		type: 'info'
-	},
-	{
 		text: '已关闭',
 		value: -1,
 		type: 'info'

@@ -42,14 +42,14 @@ const selectBuy = () => {
 };
 
 const toDetail = () => {
-	if ([1, 2].includes(props.type)) {
+	if ([1, 2, 5].includes(props.type)) {
 		routerTo(`/pages/shop/goods?id=${unref(cardData)._id}`);
 	}
 };
 </script>
 
 <template>
-	<view class="card-goods-item" @click="toDetail">
+	<view class="card-goods-item" @click.stop="toDetail">
 		<view class="card-left">
 			<image class="img" :src="getSmallImg(cardData._bannerImg, 180)" mode="aspectFill"></image>
 		</view>

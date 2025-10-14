@@ -1,1 +1,27 @@
-{"bsonType":"object","required":[],"permission":{"read":true,"create":true,"update":false,"delete":false},"properties":{"_id":{"description":"ID，系统自动生成"},"access_token":{"bsonType":"string","description":"token凭证","trim":"both"},"update_date":{"bsonType":"timestamp","description":"创建时间","forceDefaultValue":{"$env":"now"}}}}
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": true,
+		"create": true,
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"access_token": {
+		  "bsonType": "string",
+		  "description": "token凭证",
+		  "trim": "both"
+		},
+		"update_date": {
+		  "bsonType": "timestamp",
+		  "description": "创建时间",
+		  "forceDefaultValue": {
+		    "$env": "now"
+		  }
+		}
+	}
+}

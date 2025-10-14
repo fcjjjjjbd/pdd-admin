@@ -1,1 +1,25 @@
-{"bsonType":"object","required":[],"permission":{"read":true},"properties":{"_id":{"description":"ID，系统自动生成"},"service":{"bsonType":"string","description":"用户服务协议","defaultValue":"","maxLength":2000},"privacy":{"bsonType":"string","description":"隐私政策条款","defaultValue":"","maxLength":2000}},"version":"0.0.1"}
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": true
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},	
+		"service": {
+			"bsonType": "string",
+			"description": "用户服务协议",
+			"defaultValue":"",
+			"maxLength": 2000
+		},
+		"privacy": {
+			"bsonType": "string",
+			"description": "隐私政策条款",
+			"defaultValue":"",
+			"maxLength": 2000
+		}		
+	},
+	"version": "0.0.1"
+}

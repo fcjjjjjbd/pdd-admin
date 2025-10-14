@@ -66,7 +66,7 @@ module.exports = {
 		let goods_ids = goods_list.map((item) => item.goods_id);
 
 		let tasks = [
-			dbJQL.collection('JLJ-merchant-list').doc(merchant_id).field(`wx_store_id,area,address,house`).get({ getOne: true }),
+			dbJQL.collection('JLJ-merchant-list').doc(merchant_id).field(`wx_store_id,area,address,house,store`).get({ getOne: true }),
 			dbJQL
 				.collection('JLJ-mall-goods')
 				.where(`_id in ${JSON.stringify(goods_ids)}`)
@@ -111,11 +111,13 @@ module.exports = {
 			delivery_type,
 			self_take_info: {
 				...self_take_info,
-				merchant_address: merchantData.address + merchantData.house
+				merchant_address: merchantData.address + merchantData.house,
+				merchant_store: merchantData.store
 			},
 			transport_info: {
 				...transport_info,
 				merchant_address: merchantData.address + merchantData.house,
+				merchant_store: merchantData.store,
 				wx_store_id: merchantData.wx_store_id,
 				user_address: addressData.address + addressData.house,
 				user_name: addressData.name,

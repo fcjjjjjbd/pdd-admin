@@ -14,10 +14,6 @@ export const ORDER_STATUS_ENUMS = () => [
 		value: null
 	},
 	{
-		text: '已关闭',
-		value: -1
-	},
-	{
 		text: '待付款',
 		value: 0,
 		icon: 'icon-wallet',
