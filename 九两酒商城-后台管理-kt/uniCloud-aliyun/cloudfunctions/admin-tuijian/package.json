@@ -1,0 +1,7 @@
+{
+  "name": "admin-tuijian",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

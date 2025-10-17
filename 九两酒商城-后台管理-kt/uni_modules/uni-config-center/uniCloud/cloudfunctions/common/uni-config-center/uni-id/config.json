@@ -1,119 +1,68 @@
-
 {
-  "passwordSecret": [
-    {
-      "type": "hmac-sha256",
-      "version": 1,
-	  "value": "xxm456654"
-    }
-  ], 
-  "passwordStrength": "medium", 
-  "tokenSecret": "xxm123321", 
-  "requestAuthSecret": "", 
-  "tokenExpiresIn": 7200, 
-  "tokenExpiresThreshold": 3600, 
-  "maxTokenLength": 10, 
-  "passwordErrorLimit": 6, 
-  "passwordErrorRetryTime": 3600, 
-  "autoSetInviteCode": false, 
-  "forceInviteCode": false, 
-  "idCardCertifyLimit": 1, 
-  "realNameCertifyLimit": 5, 
-  "sensitiveInfoEncryptSecret": "", 
-  "frvNeedAlivePhoto": false, 
-  "userRegisterDefaultRole": [], 
-  "app": { 
+  "passwordSecret": [{
+    "type": "hmac-sha256",
+    "version": 1,
+    "value": "yyyyyyy!@#"
+  }],
+  "passwordStrength": "weak",
+  "tokenSecret": "yyyyyyy!@#",
+  "tokenExpiresIn": 72000000000,
+  "tokenExpiresThreshold": 600,
+  "passwordErrorLimit": 6,
+  "bindTokenToDevice": false,
+  "passwordErrorRetryTime": 3600,
+  "autoSetInviteCode": false,
+  "forceInviteCode": false,
+  "preferedAppPlatform": "app",
+  "app": {
     "tokenExpiresIn": 2592000,
-    "tokenExpiresThreshold": 864000,
     "oauth": {
-      
       "weixin": {
         "appid": "",
         "appsecret": ""
       },
-      
-      "qq": {
-        "appid": "",
-        "appsecret": ""
-      },
-      "apple": { 
+      "apple": {
         "bundleId": ""
-      },
-      "huawei": { 
-        "clientId": "",
-        "clientSecret": ""
-      }
-    }
-  },
-  "web": { 
-    "tokenExpiresIn": 7200,
-    "tokenExpiresThreshold": 3600,
-    "oauth": {
-      "weixin-h5": { 
-        "appid": "",
-        "appsecret": ""
-      },
-      "weixin-web": { 
-        "appid": "",
-        "appsecret": ""
       }
     }
   },
   "mp-weixin": {
-    "tokenExpiresIn": 864000,
-    "tokenExpiresThreshold": 400000,
     "oauth": {
-      
       "weixin": {
-        "appid": "wx3f17cf93d3a4823a",
-        "appsecret": "87aee1b07a2732f6bf3abe0dc159db5f"
+        "appid": "wx8e6e164b2cf51f88",
+        "appsecret": "b1ce55ca32161501348e38eda5149fd5"
       }
     }
   },
-  "mp-qq": {
-    "tokenExpiresIn": 259200,
-    "tokenExpiresThreshold": 86400,
+  "web": {
     "oauth": {
-      
-      "qq": {
+      "weixin-h5": {
         "appid": "",
         "appsecret": ""
       }
     }
   },
   "mp-alipay": {
-    "tokenExpiresIn": 259200,
-    "tokenExpiresThreshold": 86400,
     "oauth": {
-      
       "alipay": {
         "appid": "",
-        "privateKey": "", 
-        "keyType": "PKCS8" 
+        "privateKey": ""
       }
     }
   },
-  "mp-harmony": {
-      "oauth": {
-        "huawei": { 
-          "clientId": "",
-          "clientSecret": ""
-        }
-      }
-  },
   "service": {
     "sms": {
-      "name": "", 
-      "codeExpiresIn": 180, 
+      "name": "家在香溪郡小程序",
+      "codeExpiresIn": 180,
       "scene": {
-        "bind-mobile-by-sms": { 
-          "templateId": "", 
-          "codeExpiresIn": 240 
+        "login-by-sms": {
+          "templateId": "33036",
+          "codeExpiresIn": 300
         }
       }
     },
     "univerify": {
-      "appid": "" 
+      "appid": ""
     }
   }
 }
