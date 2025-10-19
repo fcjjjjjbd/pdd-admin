@@ -1,19 +1,25 @@
 {
   "bsonType": "object",
-  "required": ["content"],
+  "required": [
+    "content"
+  ],
   "permission": {
     "read": true,
     "create": true,
-    "update": true,
+    "update": "doc.user_id==auth.uid",
     "delete": "doc.user_id==auth.uid"
   },
   "properties": {
     "_id": {
       "description": "存储文档 ID（用户 ID），系统自动生成"
     },
-    "title": {
+    "name": {
       "bsonType": "string",
-      "description": "分类标题"
+      "description": "截取的标题"
+    },
+    "content": {
+      "bsonType": "string",
+      "trim": "both"
     },
     "user_id": {
       "bsonType": "string",
@@ -23,19 +29,41 @@
         "$env": "uid"
       }
     },
-    "content": {
+    "imageValue": {
+      "maxLength": 9,
+      "bsonType": "array",
+      "title": "图片列表"
+    },
+    "temparr": {
+      "maxLength": 9,
+      "bsonType": "array",
+      "arrayType": "file",
+      "fileMediaType": "image",
+      "title": "临时图片"
+    },
+    "category_id": {
       "bsonType": "string",
-      "title": "富文本",
+      "description": "分类 id",
+      "foreignKey": "JLJ-mall-category._id"
+    },
+
+    "category_name": {
+      "bsonType": "string",
+      "description": "分类名称"
+    },
+    "goods_thumb": {
+      "bsonType": "string",
+      "description": "商品详细描述",
       "trim": "both"
     },
     "like_count": {
       "bsonType": "int",
-      "description": "喜欢数、点赞数",
+      "description": "收藏数",
       "defaultValue": 0
     },
-    "comment_count": {
+    "view_count": {
       "bsonType": "int",
-      "description": "评论数量",
+      "description": "阅读量",
       "defaultValue": 0
     },
     "publish_date": {

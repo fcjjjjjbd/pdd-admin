@@ -1,0 +1,7 @@
+{
+  "name": "open-hotsearch",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

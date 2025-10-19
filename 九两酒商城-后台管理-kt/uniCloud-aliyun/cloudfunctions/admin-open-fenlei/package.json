@@ -1,0 +1,9 @@
+{
+  "name": "admin-open-fenlei",
+  "dependencies": {
+    "utils": "file:../common/utils"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

@@ -37,13 +37,6 @@
       "title": "类别描述",
       "trim": "both",
       "defaultValue": ""
-    },
-    "create_date": {
-      "bsonType": "timestamp",
-      "description": "创建时间",
-      "defaultValue": {
-        "$env": "now"
-      }
     }
   },
   "version": "0.0.1"

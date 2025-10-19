@@ -31,19 +31,10 @@
       "title": "排序",
       "defaultValue": 0
     },
-    "description": {
-      "bsonType": "string",
-      "description": "类别描述",
-      "title": "类别描述",
-      "trim": "both",
-      "defaultValue": ""
-    },
-    "create_date": {
-      "bsonType": "timestamp",
-      "description": "创建时间",
-      "defaultValue": {
-        "$env": "now"
-      }
+    "is_on_sale": {
+      "bsonType": "bool",
+      "description": "是否上架销售",
+      "title": "是否上架"
     }
   },
   "version": "0.0.1"

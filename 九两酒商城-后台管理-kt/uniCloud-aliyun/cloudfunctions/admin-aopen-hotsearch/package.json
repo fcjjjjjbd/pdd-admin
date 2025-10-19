@@ -1,0 +1,9 @@
+{
+  "name": "admin-aopen-hotsearch",
+  "dependencies": {
+    "utils": "file:../common/utils"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
