@@ -1,0 +1,11 @@
+{
+  "name": "secCheckContent",
+  "dependencies": {
+    "self-utils": "file:../common/self-utils",
+    "utils": "file:../common/utils",
+    "uni-sec-check": "file:../../../uni_modules/uni-sec-check/uniCloud/cloudfunctions/common/uni-sec-check"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

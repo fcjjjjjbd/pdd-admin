@@ -11,6 +11,42 @@ module.exports = {
     })
   },
   // 获取分类数组
+  async categorylist({
+    pageSize = 10,
+    pageCurrent = 1,
+    category_id = ""
+  } = {}) {
+    try {
+      let {
+        errCode,
+        errMsg,
+        count,
+        data
+      } = await dbJQL.collection("aopen-wen")
+        .where(` category_id == "${category_id}" `)
+        .orderBy("publish_date asc")
+        .field(`_id,name,goods_thumb`)
+        .get();
+      if (errCode !== 0) return result({
+        errCode: 400,
+        errMsg: "error",
+        custom: errMsg
+      });
+      return result({
+        errCode: 0,
+        errMsg: "success",
+        data,
+        total: count
+      });
+    } catch (err) {
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err
+      })
+    }
+  },
+  // 获取分类数组
   async list() {
     try {
       let {
@@ -44,9 +80,147 @@ module.exports = {
       })
     }
   },
-
-
-
-
+  // 我的列表
+  async myopen() {
+    try {
+      let {
+        errCode,
+        errMsg,
+        count,
+        data
+      } = await dbJQL.collection("aopen-wen")
+        .where(` user_id==$cloudEnv_uid `)
+        .orderBy("publish_date desc")
+        .field(`_id,name,goods_thumb`)
+        .get({
+          getCount: true
+        });
+      if (errCode !== 0) return result({
+        errCode: 400,
+        errMsg: "error",
+        custom: errMsg
+      });
+      return result({
+        errCode: 0,
+        errMsg: "success",
+        data,
+        total: count
+      });
+    } catch (err) {
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err
+      })
+    }
+  },
+  // 删除一个技术文章
+  async remove(id) {
+    const dbJQL = uniCloud.databaseForJQL({
+      clientInfo: this.getClientInfo()
+    });
+    return await dbJQL.collection("aopen-wen").doc(id).remove();
+  },
+  //获取修改详情文章
+  async detailxg(id = "") {
+    try {
+      if (!id) return result({
+        errCode: 400,
+        errMsg: "error",
+        custom: "id不能为空"
+      });
+      let {
+        data,
+        errCode
+      } = await dbJQL.collection("aopen-wen").doc(id).field(
+        `_id,content,imageValue,category_id,category_name`).get({
+        getOne: true
+      });
+      if (errCode !== 0) return result({
+        errCode: 400,
+        errMsg: "error",
+        custom: errMsg
+      });
+      return result({
+        errCode: 0,
+        errMsg: "success",
+        data
+      });
+    } catch (err) {
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err
+      })
+    }
+  },
+  async add(params = {}) {
+    try {
+      const randomInt = Math.floor(Math.random() * 51) + 50;
+      params.view_count = randomInt;
+      let {
+        errCode,
+        errMsg,
+        id
+      } = await dbJQL.collection("aopen-wen").add(params)
+      if (errCode !== 0) return result({
+        errCode: 400,
+        errMsg: "error",
+        custom: errMsg
+      });
+      return result({
+        errCode: 0,
+        errMsg: "success",
+        data: {
+          id
+        }
+      });
+    } catch (err) {
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err
+      })
+    }
+  },
+  //修改
+  async update(params = {}) {
+    try {
+      let {
+        _id,
+        ...rest
+      } = params
+      if (!_id) return result({
+        errCode: 400,
+        errMsg: "error",
+        custom: "_id不能为空"
+      });
+      let {
+        errCode,
+        errMsg,
+        updated
+      } = await dbJQL.collection("aopen-wen").doc(_id).update({
+        ...rest
+      })
+      if (errCode !== 0) return result({
+        errCode: 400,
+        errMsg: "error",
+        custom: errMsg
+      });
+      return result({
+        errCode: 0,
+        errMsg: "success",
+        data: {
+          updated
+        }
+      });
+    } catch (err) {
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err
+      })
+    }
+  }
 
 }
