@@ -11,20 +11,25 @@ module.exports = {
     })
   },
   // 获取分类数组
+
   async categorylist({
     pageSize = 10,
     pageCurrent = 1,
     category_id = ""
   } = {}) {
     try {
+      pageSize = Math.min(100, pageSize);
+      pageCurrent = (pageCurrent - 1) * pageSize;
+
       let {
         errCode,
         errMsg,
-        count,
-        data
+        data,
+        count
       } = await dbJQL.collection("aopen-wen")
         .where(` category_id == "${category_id}" `)
         .orderBy("publish_date asc")
+        .skip(pageCurrent).limit(pageSize)
         .field(`_id,name,goods_thumb`)
         .get();
       if (errCode !== 0) return result({
@@ -132,8 +137,7 @@ module.exports = {
       let {
         data,
         errCode
-      } = await dbJQL.collection("aopen-wen").doc(id).field(
-        `_id,content,imageValue,category_id,category_name`).get({
+      } = await dbJQL.collection("aopen-wen").doc(id).get({
         getOne: true
       });
       if (errCode !== 0) return result({
