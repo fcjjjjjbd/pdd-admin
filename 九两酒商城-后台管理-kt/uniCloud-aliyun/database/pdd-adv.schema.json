@@ -21,17 +21,26 @@
         "$env": "uid"
       }
     },
-    "goods_thumb": {
-      "bsonType": "string",
+    "imageValue": {
+      "bsonType": "array",
       "description": "用于在列表显示封面图图",
       "title": "封面地址",
-      "pattern": "^(http:\/\/|https:\/\/|\/|.\/|@\/)\\S",
+      "trim": "both"
+    },
+    "temparr": {
+      "bsonType": "array",
+      "description": "用于在列表显示封面图图",
+      "title": "封面地址",
       "trim": "both"
     },
     "order_no": {
       "bsonType": "string",
       "title": "订单号",
       "trim": "both"
+    },
+    "phone": {
+      "bsonType": "int",
+      "title": "电话号"
     },
     "status": {
       "bsonType": "int",
