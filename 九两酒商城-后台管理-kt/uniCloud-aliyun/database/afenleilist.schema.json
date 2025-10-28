@@ -17,11 +17,7 @@
       "description": "2极分类名称",
       "trim": "both"
     },
-    "dstype": {
-      "bsonType": "int",
-      "description": "回复类型： 0 全部  1 回收",
-      "defaultValue": 0
-    },
+
     "category_id": {
       "bsonType": "string",
       "title": "分类",
@@ -33,21 +29,16 @@
         "field": "title as text, _id as value"
       }
     },
+    "iconss": {
+      "bsonType": "string",
+      "description": "iconfont图标地址",
+    },
     "sort": {
       "bsonType": "int",
       "title": "排序",
       "description": "类别排序"
     },
-    "jinjia": {
-      "bsonType": "string",
-      "description": "进价详情`",
-      "trim": "both"
-    },
-    "shoujia": {
-      "bsonType": "string",
-      "description": "售价详情`",
-      "trim": "both"
-    },
+
     "create_date": {
       "bsonType": "timestamp",
       "description": "创建时间",
@@ -55,11 +46,7 @@
         "$env": "now"
       }
     },
-    "phone": {
-      "bsonType": "int",
-      "title": "商家电话",
-      "trim": "both"
-    }
+
   },
   "version": "0.0.1"
 }

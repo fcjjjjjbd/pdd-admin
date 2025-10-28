@@ -123,7 +123,7 @@ module.exports = {
     const dbJQL = uniCloud.databaseForJQL({
       clientInfo: this.getClientInfo()
     });
-    return await dbJQL.collection("aopen-wen").doc(id).remove();
+    return await dbJQL.collection("pdd-adv").doc(id).remove();
   },
   //获取修改详情文章
   async detailxg(id = "") {
@@ -136,7 +136,7 @@ module.exports = {
       let {
         data,
         errCode
-      } = await dbJQL.collection("aopen-wen").doc(id).get({
+      } = await dbJQL.collection("pdd-adv").doc(id).get({
         getOne: true
       });
       if (errCode !== 0) return result({
