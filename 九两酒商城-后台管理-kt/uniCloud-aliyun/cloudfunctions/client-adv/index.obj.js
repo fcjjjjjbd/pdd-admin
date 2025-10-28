@@ -85,26 +85,24 @@ module.exports = {
       })
     }
   },
-  // 搜索
-  async searchlist({
+  // 分类下列表广告
+  async categorylist({
     pageSize = 10,
     pageCurrent = 1,
-    keyword = ''
+    category_id = ''
   } = {}) {
     try {
-      pageSize = Math.min(12, pageSize);
+      pageSize = Math.min(10, pageSize);
       pageCurrent = (pageCurrent - 1) * pageSize;
       let {
         data,
         errCode
       } = await dbJQL
-        .collection('aopen-wen')
-        .where(`${new RegExp(keyword, 'i')}.test(content)`)
-        .field(`_id,name,goods_thumb`)
-        .orderBy('view_count desc')
+        .collection('pdd-adv')
+        .where(`category_id=='${category_id}'`)
+        .orderBy('createTime desc')
         .skip(pageCurrent)
         .limit(pageSize)
-
         .get();
 
       if (errCode !== 0) return result({

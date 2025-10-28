@@ -1,0 +1,10 @@
+{
+  "name": "client-adv",
+  "dependencies": {
+    "utils": "file:../common/utils",
+    "uni-pay": "file:../../../uni_modules/uni-pay/uniCloud/cloudfunctions/common/uni-pay"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

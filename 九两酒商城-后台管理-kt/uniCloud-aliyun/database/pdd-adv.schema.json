@@ -13,11 +13,6 @@
       "description": "ID，系统自动生成"
     },
 
-    "orderType": {
-      "bsonType": "string",
-      "title": "支付类型:广告费payad押金",
-      "trim": "both"
-    },
     "user_id": {
       "bsonType": "string",
       "description": "作者ID， 参考`uni-id-users` 表",
@@ -25,6 +20,13 @@
       "defaultValue": {
         "$env": "uid"
       }
+    },
+    "goods_thumb": {
+      "bsonType": "string",
+      "description": "用于在列表显示封面图图",
+      "title": "封面地址",
+      "pattern": "^(http:\/\/|https:\/\/|\/|.\/|@\/)\\S",
+      "trim": "both"
     },
     "order_no": {
       "bsonType": "string",
@@ -56,8 +58,10 @@
       "title": "广告内容",
       "trim": "both"
     },
-    "classifyid": {
-      "bsonType": "string"
+    "category_id": {
+      "bsonType": "string",
+      "title": "分类id"
+
     }
   }
 }
