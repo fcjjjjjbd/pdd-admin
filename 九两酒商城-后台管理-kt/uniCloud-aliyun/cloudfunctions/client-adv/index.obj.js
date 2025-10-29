@@ -46,7 +46,7 @@ module.exports = {
       })
     }
   },
-  // 分类下列表广告
+  // 分类下列表广告贾谊
   async categorylist({
     pageSize = 10,
     pageCurrent = 1,
@@ -80,12 +80,14 @@ module.exports = {
       return result({
         errCode: 500,
         errMsg: 'bug',
+        jie 'he
         custom: err
       });
     }
   },
-  // 我的列表
-  async myopen(id) {
+  // 我的列表   
+
+  async myopen(id = "") {
     try {
       let {
         errCode,
@@ -95,7 +97,6 @@ module.exports = {
       } = await dbJQL.collection("pdd-adv")
         .where(` user_id == '${id}' `)
         .orderBy("publish_date desc")
-        .field(`_id,content,imageValue,user_id `)
         .get({
           getCount: true
         });

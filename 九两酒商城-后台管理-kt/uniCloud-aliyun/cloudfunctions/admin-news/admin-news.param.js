@@ -11,4 +11,4 @@ add({
 // list()
 // remove(["68751a1f0d2b3178f83b73e2","68751a91862066586cccbcf6"]);
 // update({_id:"687678cfa09a9b16db3dfd4d",article_status:1})
-detail("687678cfa09a9b16db3dfd4d")
+myopen()
