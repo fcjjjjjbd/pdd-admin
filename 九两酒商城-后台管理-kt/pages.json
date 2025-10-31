@@ -196,6 +196,12 @@
       }
     },
     {
+      "path": "pages/merchant/two-category/list",
+      "style": {
+        "navigationBarTitleText": "二级分类列表"
+      }
+    },
+    {
       "path": "pages/merchant/store/list",
       "style": {
         "navigationBarTitleText": "商户列表"
