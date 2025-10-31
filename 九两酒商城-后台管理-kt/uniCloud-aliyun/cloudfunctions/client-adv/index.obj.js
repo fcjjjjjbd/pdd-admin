@@ -80,7 +80,6 @@ module.exports = {
       return result({
         errCode: 500,
         errMsg: 'bug',
-        jie 'he
         custom: err
       });
     }
