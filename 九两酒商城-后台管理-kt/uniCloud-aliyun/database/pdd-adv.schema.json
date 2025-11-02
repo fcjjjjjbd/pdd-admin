@@ -21,6 +21,28 @@
         "$env": "uid"
       }
     },
+    "openid": {
+      "title": "openid",
+      "bsonType": "string",
+      "description": "发起支付的用户openid",
+      "trim": "both"
+    },
+    "description": {
+      "title": "支付描述",
+      "bsonType": "string",
+      "description": "支付描述，如：uniCloud个人版包月套餐",
+      "trim": "both"
+    },
+    "like_count": {
+      "bsonType": "int",
+      "description": "喜欢数、点赞数",
+      "defaultValue": 0
+    },
+    "comment_count": {
+      "bsonType": "int",
+      "description": "评论数量",
+      "defaultValue": 0
+    },
     "imageValue": {
       "bsonType": "array",
       "description": "用于在列表显示封面图图",
@@ -29,22 +51,46 @@
     },
     "temparr": {
       "bsonType": "array",
-      "description": "用于在列表显示封面图图",
+      "description": "用于在临时图",
       "title": "封面地址",
       "trim": "both"
     },
     "order_no": {
+      "title": "支付插件订单号",
       "bsonType": "string",
-      "title": "订单号",
+      "description": "支付插件订单号（需控制唯一，不传则由插件自动生成）",
       "trim": "both"
     },
     "phone": {
       "bsonType": "int",
       "title": "电话号"
     },
-    "status": {
+    "order_status": {
+      "title": "订单状态",
       "bsonType": "int",
-      "title": " 0：未支付 1：已支付 2：已部分退款 3：已全额退款",
+      "enum": [{
+        "text": "已关闭",
+        "value": -1
+      }, {
+        "text": "待付款",
+        "value": 0
+      }, {
+        "text": "待发货",
+        "value": 1
+      }, {
+        "text": "待取货",
+        "value": 2
+      }, {
+        "text": "待收货",
+        "value": 3
+      }, {
+        "text": "退款",
+        "value": 4
+      }, {
+        "text": "完成",
+        "value": 5
+      }],
+      "description": "订单状态 -1 已关闭 0：待付款 1：待发货 2：待取货 3：待收货 4：退款 5：完成",
       "defaultValue": 0
     },
     "total_fee": {
