@@ -29,9 +29,14 @@
         "field": "title as text, _id as value"
       }
     },
+    "is_on_sale": {
+      "bsonType": "bool",
+      "description": "是否上架销售",
+      "title": "是否上架"
+    },
     "iconss": {
       "bsonType": "string",
-      "description": "iconfont图标地址",
+      "description": "iconfont图标地址"
     },
     "sort": {
       "bsonType": "int",
@@ -39,13 +44,13 @@
       "description": "类别排序"
     },
 
-    "create_date": {
+    "last_modify_date": {
       "bsonType": "timestamp",
       "description": "创建时间",
       "defaultValue": {
         "$env": "now"
       }
-    },
+    }
 
   },
   "version": "0.0.1"

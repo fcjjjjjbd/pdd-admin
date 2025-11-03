@@ -202,6 +202,12 @@
       }
     },
     {
+      "path": "pages/merchant/two-category/edit",
+      "style": {
+        "navigationBarTitleText": "二级分类列表"
+      }
+    },
+    {
       "path": "pages/merchant/store/list",
       "style": {
         "navigationBarTitleText": "商户列表"
@@ -267,7 +273,7 @@
         "navigationBarTitleText": "分类管理"
       }
     },
-  
+
     {
       "path": "pages/aopen/hotsearch/list",
       "style": {

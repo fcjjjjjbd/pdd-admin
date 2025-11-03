@@ -8,10 +8,14 @@ const emits = defineEmits(["close", "success"]);
 const props = defineProps(["sort", "typeName", "item"]);
 const formRef = ref(null);
 const loading = ref(false);
+const categoryList
+ = ref([]);
+
 const formData = ref({
   name: "",
   sort: props.sort + 1,
   ...props.item,
+  category_id:""
 });
 
 const rules = ref({
@@ -44,24 +48,31 @@ const onSubmit = async () => {
     loading.value = false;
   }
 };
+
 </script>
 
 <template>
   <view class="layout">
     <el-form ref="formRef" label-width="100px" :model="formData" :rules="rules">
       <el-form-item label="分类名称" prop="name">
-        <el-input
-          v-model="formData.name"
+        <el-input 
+          v-model="formData.name" 
           placeholder="请输入分类名称"
-          clearable
-        ></el-input>
+          maxlength="5"
+          show-word-limit
+        />
       </el-form-item>
-
-      <el-form-item label="排序">
-        <el-input-number v-model="formData.sort" :min="0" :max="100" />
+      
+      <el-form-item label="排序" prop="sort">
+        <el-input-number 
+          v-model="formData.sort" 
+          :min="1" 
+          :max="999"
+          placeholder="请输入排序值"
+        />
       </el-form-item>
     </el-form>
-
+    
     <view class="dialog-footer">
       <el-button @click="close">取消</el-button>
       <el-button type="primary" @click="onSubmit" :loading="loading"

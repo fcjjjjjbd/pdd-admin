@@ -2,8 +2,6 @@
 import { computed, ref, unref } from "vue";
 import dayjs from "dayjs";
 import { showToast, showModal } from "../../../utils/common";
-import EditCategory from "./children/EditCategory.vue";
-import { ArrowDown, ArrowUp } from "@element-plus/icons-vue";
 const categoryCloudObj = uniCloud.importObject("admin-index-category", {
   customUI: true,
 });
