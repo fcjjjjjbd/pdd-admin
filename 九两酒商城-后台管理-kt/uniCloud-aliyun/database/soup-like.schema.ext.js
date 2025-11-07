@@ -19,7 +19,7 @@ module.exports = {
           "like_count": dbCmd.inc(1)
         });
       } else if (like_type == 0) {
-        let res = await db.collection('goods_detail').doc(soup_id).update({
+        let res = await db.collection('pdd-adv').doc(soup_id).update({
           "like_count": dbCmd.inc(1)
         });
       }
@@ -40,7 +40,7 @@ module.exports = {
           "like_count": dbCmd.inc(-1)
         });
       } else if (like_type == 0) {
-        let res = await db.collection("goods_detail").where({
+        let res = await db.collection("pdd-adv").where({
           _id: soup_id
         }).update({
           "like_count": dbCmd.inc(-1)

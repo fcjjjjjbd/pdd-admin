@@ -26,7 +26,10 @@ const handleLogin = () => {
 <template>
 	<view class="page-wrap">
 		<mod-nav-bar title="我的" title-color="#fff"></mod-nav-bar>
+
 		<view class="page-content">
+		
+		
 			<view class="user-wrap">
 				<view class="userinfo">
 					<view class="left" @click="handleLogin">

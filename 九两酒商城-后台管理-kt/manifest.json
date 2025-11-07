@@ -78,7 +78,7 @@
   },
   "uniStatistics": {
     "enable": false,
-    "version": "2",
+    "version": "1",
     "reportInterval": "60"
   },
   "h5": {

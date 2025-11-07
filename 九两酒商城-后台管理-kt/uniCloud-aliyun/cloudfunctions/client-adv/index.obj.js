@@ -41,7 +41,7 @@ module.exports = {
       });
     }
   },
-  // 分类下列表广告贾谊
+  // 分类下列表广告,聚合替代
   async categorylist({
     pageSize = 10,
     pageCurrent = 1,
@@ -77,8 +77,37 @@ module.exports = {
       });
     }
   },
+  // 我的收藏列表
+  async mylove(id = "") {
+    try {
+      let { errCode, errMsg, count, data } = await dbJQL
+        .collection("pdd-adv")
+        .where(` user_id == '${id}' `)
+        .orderBy("publish_date desc")
+        .get({
+          getCount: true,
+        });
+      if (errCode !== 0)
+        return result({
+          errCode: 400,
+          errMsg: "error",
+          custom: errMsg,
+        });
+      return result({
+        errCode: 0,
+        errMsg: "success",
+        data,
+        total: count,
+      });
+    } catch (err) {
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err,
+      });
+    }
+  },
   // 我的列表
-
   async myopen(id = "") {
     try {
       let { errCode, errMsg, count, data } = await dbJQL
