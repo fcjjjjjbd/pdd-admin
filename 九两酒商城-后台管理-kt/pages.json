@@ -279,6 +279,18 @@
       "style": {
         "navigationBarTitleText": "搜索推荐"
       }
+    },
+    {
+      "path": "pages/merchant/adv-list/adv-list",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/merchant/open-list/open-list",
+      "style": {
+        "navigationBarTitleText": ""
+      }
     }
   ],
   "subPackages": [

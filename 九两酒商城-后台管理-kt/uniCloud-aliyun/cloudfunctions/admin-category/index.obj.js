@@ -35,6 +35,7 @@ module.exports = {
       });
     }
   },
+  // 2级分类
   async list({ pageSize = 10, pageCurrent = 1, keyword = "" } = {}) {
     try {
       pageSize = Math.min(100, pageSize);
@@ -82,7 +83,50 @@ module.exports = {
       });
     }
   },
+  // 分类下广告
+  async advlist({ pageSize = 10, pageCurrent = 1, keyword = "" } = {}) {
+    try {
+      pageSize = Math.min(100, pageSize);
+      pageCurrent = (pageCurrent - 1) * pageSize;
+      let wre = keyword ? `${new RegExp(keyword, "i")}.test(content)` : {};
+      let listTemp = dbJQL
+        .collection("pdd-adv")
+        .orderBy("sort desc")
+        .skip(pageCurrent)
+        .limit(pageSize)
+        .getTemp();
+      let cateTemp = dbJQL
+        .collection("afenleilist")
+        .field(`_id,category_id,name`)
+        .getTemp();
 
+      let { errCode, data, count } = await dbJQL
+        .collection(listTemp, cateTemp)
+        .where(wre)
+
+        .get({
+          getCount: true,
+        });
+      if (errCode !== 0)
+        return result({
+          errCode: 400,
+          errMsg: "error",
+          custom: "查询失败",
+        });
+      return result({
+        errCode: 0,
+        errMsg: "success",
+        data,
+        total: count,
+      });
+    } catch (err) {
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err,
+      });
+    }
+  },
   async update({ _id, ...rest } = {}) {
     try {
       if (!_id)
