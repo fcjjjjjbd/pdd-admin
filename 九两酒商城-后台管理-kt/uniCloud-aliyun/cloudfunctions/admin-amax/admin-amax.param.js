@@ -1,0 +1,6 @@
+const clientInfo = {
+  clientIP: '127.0.0.1',
+  uniIdToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2OTAyNzdmY2VlZjljYjVkZDczMGE4M2QiLCJyb2xlIjpbImFkbWluIl0sInBlcm1pc3Npb24iOltdLCJ1bmlJZFZlcnNpb24iOiIxLjAuMTgiLCJpYXQiOjE3NjI1MjQ1OTYsImV4cCI6NzM3NjI1MjQ1OTZ9.rc98zX3EQ3BXto0f_XTUylz-QJ2t02aJeuTTOLE_gYI'
+}
+
+list()

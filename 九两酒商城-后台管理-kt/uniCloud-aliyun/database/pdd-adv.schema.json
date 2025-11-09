@@ -122,7 +122,8 @@
     },
     "category_id": {
       "bsonType": "string",
-      "title": "分类id"
+      "title": "分类id",
+      "foreignKey": "afenleilist._id"
     }
   }
 }

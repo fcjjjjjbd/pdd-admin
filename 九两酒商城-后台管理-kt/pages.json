@@ -281,17 +281,19 @@
       }
     },
     {
-      "path": "pages/merchant/adv-list/adv-list",
+      "path": "pages/activity/adv-crud/adv-list",
       "style": {
         "navigationBarTitleText": ""
       }
     },
     {
-      "path": "pages/merchant/open-list/open-list",
+      "path": "pages/activity/open-crud/list",
       "style": {
         "navigationBarTitleText": ""
       }
     }
+  
+  
   ],
   "subPackages": [
     {
