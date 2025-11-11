@@ -1,6 +1,6 @@
-const clientInfo = {  
+const clientInfo = {
   clientIP: '127.0.0.1',
-  uniIdToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODczMzM3ODA5NjY0Y2NhOThmZDllM2YiLCJyb2xlIjpbImFkbWluIl0sInBlcm1pc3Npb24iOltdLCJ1bmlJZFZlcnNpb24iOiIxLjAuMTgiLCJpYXQiOjE3NTM1ODg5MTksImV4cCI6MTc1MzU5NjExOX0.XRWjm7yhjebmcEc0XJRifF_3776SqoxRj0WVqBVrc-I'
+  uniIdToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2OTAyNzdmY2VlZjljYjVkZDczMGE4M2QiLCJyb2xlIjpbImFkbWluIl0sInBlcm1pc3Npb24iOltdLCJ1bmlJZFZlcnNpb24iOiIxLjAuMTgiLCJpYXQiOjE3NjI1MjQ1OTYsImV4cCI6NzM3NjI1MjQ1OTZ9.rc98zX3EQ3BXto0f_XTUylz-QJ2t02aJeuTTOLE_gYI'
 }
 // add({category_id:"687e55fcf08210a1fedb5e4f",name:"茅台",sku:[{_id:123,name:"一瓶",price:1000,weight:600}]})
 // add({category_id:"68809fea6e5d2d42e629f6b8",name:"青岛啤酒",sku:[{_id:123,name:"6瓶",price:2000,weight:3000},{_id:456,name:"12瓶",price:4000,weight:6000}]})
@@ -12,4 +12,6 @@ const clientInfo = {
 
 // detail({_id:"68858a956e5d2d42e6a782c7"})
 
-remove({_id:"68824c578a5c782a2b3bbe39"})
+detail({
+  _id: "68bad11c189f86d5e1962cde"
+})

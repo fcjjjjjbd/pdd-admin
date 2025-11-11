@@ -129,15 +129,7 @@ getData();
 						</div>
 					</template>
 				</el-table-column>				
-				<el-table-column label="热销推荐">
-					<template #default="scope">
-						<div>
-						  <el-switch :model-value="scope.row.is_hot" 
-						  @change="hotChange($event,scope.$index)"/>						  
-						</div>
-					</template>
-				</el-table-column>
-				
+					
 				<el-table-column label="发布日期">
 					<template #default="scope">
 						<div class="time">
@@ -146,14 +138,7 @@ getData();
 					</template>
 				</el-table-column>
 				
-				<el-table-column label="更新日期">
-					<template #default="scope">
-						<div class="time">
-						  {{dayjs(scope.row.last_modify_date).format("YYYY-MM-DD HH:mm") }}						  
-						</div>
-					</template>
-				</el-table-column>
-				
+			
 				<el-table-column label="操作" width="180">
 					<template #default="scope">
 						<div>

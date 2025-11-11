@@ -1,12 +1,20 @@
 let dbJQL = uniCloud.databaseForJQL()
-let {result}  = require("utils");
+let {
+  result
+} = require("utils");
 module.exports = {
-  _before: function () {
+  _before: function() {
     // 通用预处理器
     const clientInfo = this.getClientInfo();
-    dbJQL = uniCloud.databaseForJQL({ clientInfo });
+    dbJQL = uniCloud.databaseForJQL({
+      clientInfo
+    });
   },
-  async list({ pageSize = 10, pageCurrent = 1, keyword = "" } = {}) {
+  async list({
+    pageSize = 10,
+    pageCurrent = 1,
+    keyword = ""
+  } = {}) {
     try {
       pageSize = Math.min(100, pageSize);
       pageCurrent = (pageCurrent - 1) * pageSize;
@@ -22,19 +30,38 @@ module.exports = {
         .field(`_id,name`)
         .getTemp();
 
-      let { errCode, data, count } = await dbJQL
+      let {
+        errCode,
+        data,
+        count
+      } = await dbJQL
         .collection(listTemp, cateTemp)
         .where(wre)
         .field(
           `_id,name,is_on_sale,is_hot,create_date,last_modify_date,arrayElemAt(category_id.name,0) as category_name,
 			arrayElemAt(goods_banner_imgs,0) as goods_banner_img`
         )
-        .get({ getCount: true });
+        .get({
+          getCount: true
+        });
       if (errCode !== 0)
-        return result({ errCode: 400, errMsg: "error", custom: "查询失败" });
-      return result({ errCode: 0, errMsg: "success", data, total: count });
+        return result({
+          errCode: 400,
+          errMsg: "error",
+          custom: "查询失败"
+        });
+      return result({
+        errCode: 0,
+        errMsg: "success",
+        data,
+        total: count
+      });
     } catch (err) {
-      return result({ errCode: 500, errMsg: "bug", custom: err });
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err
+      });
     }
   },
   async add(params = {}) {
@@ -50,26 +77,47 @@ module.exports = {
         status: true,
         ...item,
       }));
-      let { errCode, id, errMsg } = await dbJQL
+      let {
+        errCode,
+        id,
+        errMsg
+      } = await dbJQL
         .collection("JLJ-mall-goods")
         .add(params);
       if (errCode !== 0)
-        return result({ errCode: 400, errMsg: "error", custom: "新增失败" });
+        return result({
+          errCode: 400,
+          errMsg: "error",
+          custom: "新增失败"
+        });
       return result({
         errCode: 0,
         errMsg: "success",
-        data: { id },
+        data: {
+          id
+        },
         custom: "新增成功",
       });
     } catch (err) {
-      return result({ errCode: 500, errMsg: "bug", custom: err });
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err
+      });
     }
   },
 
-  async update({ _id, ...rest } = {}) {
+  async update({
+    _id,
+    ...rest
+  } = {}) {
     try {
       if (!_id)
-        return result({ errCode: 400, errMsg: "error", custom: "_id不能为空" });
+        return result({
+          errCode: 400,
+          errMsg: "error",
+          custom: "_id不能为空"
+        });
       if (!Object.keys(rest).length)
         return result({
           errCode: 400,
@@ -95,48 +143,155 @@ module.exports = {
           ...item,
         }));
       }
-      let { errCode, errMsg, updated } = await dbJQL
+      let {
+        errCode,
+        errMsg,
+        updated
+      } = await dbJQL
         .collection("JLJ-mall-goods")
         .doc(_id)
-        .update({ ...rest, last_modify_date: Date.now() });
+        .update({
+          ...rest,
+          last_modify_date: Date.now()
+        });
       if (errCode !== 0)
-        return result({ errCode: 400, errMsg: "error", custom: errMsg });
-      return result({ errCode: 0, errMsg: "success", data: { updated } });
+        return result({
+          errCode: 400,
+          errMsg: "error",
+          custom: errMsg
+        });
+      return result({
+        errCode: 0,
+        errMsg: "success",
+        data: {
+          updated
+        }
+      });
     } catch (err) {
-      return result({ errCode: 500, errMsg: "bug", custom: err });
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err
+      });
     }
   },
-  async remove({ _id } = {}) {
+  async remove({
+    _id
+  } = {}) {
     try {
       if (!_id)
-        return result({ errCode: 400, errMsg: "error", custom: "_id不能为空" });
-      let { errCode, errMsg, deleted } = await dbJQL
+        return result({
+          errCode: 400,
+          errMsg: "error",
+          custom: "_id不能为空"
+        });
+      let {
+        errCode,
+        errMsg,
+        deleted
+      } = await dbJQL
         .collection("JLJ-mall-goods")
         .doc(_id)
         .remove();
       if (errCode !== 0)
-        return result({ errCode: 400, errMsg: "error", custom: errMsg });
-      return result({ errCode: 0, errMsg: "success", data: { deleted } });
+        return result({
+          errCode: 400,
+          errMsg: "error",
+          custom: errMsg
+        });
+      return result({
+        errCode: 0,
+        errMsg: "success",
+        data: {
+          deleted
+        }
+      });
     } catch (err) {
-      return result({ errCode: 500, errMsg: "bug", custom: err });
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err
+      });
     }
   },
 
-  async detail({ _id } = {}) {
+  async detail({
+    _id
+  } = {}) {
     try {
       if (!_id)
-        return result({ errCode: 400, errMsg: "error", custom: "_id不能为空" });
-      let { errCode, data } = await dbJQL
+        return result({
+          errCode: 400,
+          errMsg: "error",
+          custom: "_id不能为空"
+        });
+      let {
+        errCode,
+        data
+      } = await dbJQL
         .collection("JLJ-mall-goods")
         .doc(_id)
         .field(
           `_id,category_id,name,sku,goods_desc,goods_banner_imgs,is_on_sale,is_hot`
         )
-        .get({ getOne: true });
-      if (errCode !== 0) return result({ errCode: 400, errMsg: "error" });
-      return result({ errCode: 0, errMsg: "success", data });
+        .get({
+          getOne: true
+        });
+      if (errCode !== 0) return result({
+        errCode: 400,
+        errMsg: "error"
+      });
+      return result({
+        errCode: 0,
+        errMsg: "success",
+        data
+      });
     } catch (err) {
-      return result({ errCode: 500, errMsg: "bug", custom: err });
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err
+      });
+    }
+  },
+  // 价格详情
+  async skudetail({
+    _id
+  } = {}) {
+    try {
+      if (!_id)
+        return result({
+          errCode: 400,
+          errMsg: "error",
+          custom: "_id不能为空"
+        });
+      let {
+        errCode,
+        data
+      } = await dbJQL
+        .collection("JLJ-mall-goods")
+        .doc(_id)
+        .field(
+          `_id,sku`
+        )
+        .get({
+          getOne: true
+        });
+      if (errCode !== 0) return result({
+        errCode: 400,
+        errMsg: "error"
+      });
+      return result({
+        errCode: 0,
+        errMsg: "success",
+        data
+      });
+    } catch (err) {
+      return result({
+        errCode: 500,
+        errMsg: "bug",
+        custom: err
+      });
     }
   },
 };

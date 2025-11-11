@@ -70,8 +70,7 @@
     "order_status": {
       "title": "订单状态",
       "bsonType": "int",
-      "enum": [
-        {
+      "enum": [{
           "text": "已关闭",
           "value": -1
         },
@@ -120,10 +119,15 @@
       "title": "广告内容",
       "trim": "both"
     },
+    "wx_count": {
+      "bsonType": "string",
+      "title": "微信号",
+      "trim": "both"
+    },
     "category_id": {
       "bsonType": "string",
       "title": "分类id",
-      "foreignKey": "afenleilist._id"
+      "foreignKey": "JLJ-mall-goods._id"
     }
   }
 }
