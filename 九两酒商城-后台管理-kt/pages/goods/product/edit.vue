@@ -203,21 +203,6 @@ getCategory();
                 </template>
               </el-table-column>
 
-              <el-table-column label="进价">
-                <template #default="scope">
-                  <el-input-number
-                    :min="0.01"
-                    v-model="scope.row.price"
-                    placeholder="售价"
-                    :precision="2"
-                  >
-                    <template #prefix>
-                      <text>￥</text>
-                    </template>
-                  </el-input-number>
-                </template>
-              </el-table-column>
-
               <el-table-column label="原价">
                 <template #default="scope">
                   <el-input-number
@@ -233,6 +218,22 @@ getCategory();
                 </template>
               </el-table-column>
 
+              <el-table-column label="进价">
+                <template #default="scope">
+                  <el-input-number
+                    :min="0.01"
+                    v-model="scope.row.price"
+                    placeholder="售价"
+                    :precision="2"
+                  >
+                    <template #prefix>
+                      <text>￥</text>
+                    </template>
+                  </el-input-number>
+                </template>
+              </el-table-column>
+
+              
               <el-table-column label="重量">
                 <template #default="scope">
                   <el-input-number

@@ -22,6 +22,10 @@
       "title": "名称",
       "trim": "both"
     },
+    "sort":{
+      "bsonType": "int",
+      "description": "排序"
+    },
     "sku": {
       "bsonType": "array",
       "arrayType": "object",

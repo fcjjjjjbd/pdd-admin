@@ -196,17 +196,9 @@
       }
     },
     {
-      "path": "pages/merchant/two-category/list",
-      "style": {
-        "navigationBarTitleText": "二级分类列表"
-      }
-    },
+
     {
-      "path": "pages/merchant/two-category/edit",
-      "style": {
-        "navigationBarTitleText": "二级分类列表"
-      }
-    },
+
     {
       "path": "pages/merchant/store/list",
       "style": {

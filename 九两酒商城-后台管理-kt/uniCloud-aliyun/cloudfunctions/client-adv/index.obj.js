@@ -108,12 +108,14 @@ module.exports = {
     }
   },
   // 我的列表
-  async myopen(id = "") {
+  async myopen({ pageSize = 10, pageCurrent = 1, current_id = "" } = {}) {
     try {
       let { errCode, errMsg, count, data } = await dbJQL
         .collection("pdd-adv")
-        .where(` user_id == '${id}' `)
+        .where(` user_id == '${current_id}' `)
         .orderBy("publish_date desc")
+        .skip(pageCurrent)
+        .limit(pageSize)
         .get({
           getCount: true,
         });
