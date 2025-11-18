@@ -13,34 +13,33 @@ module.exports = {
       clientInfo
     })
   },
+  //   .field(`_id,name,_id["JLJ-mall-goods"] as goods`)
+
   async list() {
     try {
       let cateTemp = dbJQL.collection("JLJ-mall-category")
-        .field(`_id,name`)
+        .field(`_id ,name`)
         .orderBy("sort asc")
         .getTemp();
       let goodsTemp = dbJQL.collection("JLJ-mall-goods")
-        .field(`_id,
-			ifNull(arrayElemAt(goods_banner_imgs,0),'') as goods_banner_img,
-			sku,
-			name,category_id`)
-        .getTemp();
+        .field(`_id ,name,category_id`)
+        .orderBy("sort asc")
 
+        .getTemp();
       let {
         data,
         errCode,
         count
       } = await dbJQL.collection(cateTemp, goodsTemp)
-        .field(`_id._value as _id,name,_id["JLJ-mall-goods"] as goods`)
-        .get({
-          getCount: true
-        });
+        .field(`_id._value as _id,name,
+         _id["JLJ-mall-goods"] as goods`)
+        .get();
+
       if (errCode !== 0) return result({
         errCode: 400,
         errMsg: "error",
         custom: "查询失败"
       });
-      data = processedData(data)
       return result({
         errCode: 0,
         errMsg: "success",

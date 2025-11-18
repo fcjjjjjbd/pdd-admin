@@ -85,14 +85,14 @@
     "template": "",
     "router": {
       "mode": "hash",
-      "base": ""
+      "base": "/admin/"
     },
     "uniStatistics": {
       "enable": true
     },
     "title": "pddadmin",
     "devServer": {
-      "https": false
+      "https": true
     }
   },
   "vueVersion": "3",

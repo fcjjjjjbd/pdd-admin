@@ -38,7 +38,7 @@ module.exports = {
         .collection(listTemp, cateTemp)
         .where(wre)
         .field(
-          `_id,name,is_on_sale,is_hot,create_date,last_modify_date,arrayElemAt(category_id.name,0) as category_name,
+          `_id,name,is_on_sale,is_hot,create_date,last_modify_date,arrayElemAt(category_id.name,0) as category_name,sort,
 			arrayElemAt(goods_banner_imgs,0) as goods_banner_img`
         )
         .get({

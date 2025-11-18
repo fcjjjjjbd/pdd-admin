@@ -18,7 +18,19 @@ const search = ()=>{
 	query.value.pageCurrent = 1;
 	getData()
 }
-
+const sortChange = async (e, index) => {
+  try {
+    let _id = unref(tableData)[index]._id;
+    loading.value = true;
+    let { errCode, data } = await goodsCloudObj.update({ _id, sort: e });
+    if (errCode !== 0) return showToast("更新失败");
+    getData();
+  } catch (err) {
+    loading.value = false;
+    console.log(err);
+    showToast(err);
+  }
+};
 const previewImg = (index)=>{
 	if(!unref(tableData)[index].goods_banner_img) return;
 	uni.previewImage({
@@ -120,6 +132,27 @@ getData();
 				</el-table-column>
 				<el-table-column prop="name" show-overflow-tooltip label="商品名称" width="200" />
 				<el-table-column prop="category_name" show-overflow-tooltip label="所属分类"/>
+				    <el-table-column label="排序">
+          <template #default="scope">
+            <el-input-number
+              :model-value="scope.row.sort"
+			  size="small"
+              @change="sortChange($event, scope.$index)"
+            >
+              <template #decrease-icon>
+                <el-icon>
+                  <ArrowUp />
+                </el-icon>
+              </template>
+              <template #increase-icon>
+                <el-icon>
+                  <ArrowDown />
+                </el-icon>
+              </template>
+            </el-input-number>
+          </template>
+        </el-table-column>
+  
 				<el-table-column label="是否上架">
 					<template #default="scope">
 						<div>

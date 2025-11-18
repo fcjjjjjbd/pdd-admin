@@ -35,6 +35,8 @@ const formData = ref({
   goods_desc: "",
   goods_banner_imgs: [],
   sku: [skuItem()],
+  	sort:props.sort + 1,
+
 });
 const categoryList = ref([]);
 
@@ -168,7 +170,10 @@ getCategory();
           <el-form-item label="商品名称" prop="name">
             <el-input v-model="formData.name" placeholder="请输入商品名称" />
           </el-form-item>
-
+<el-form-item label="排序">
+				<el-input-number v-model="formData.sort" :min="0" :max="100"/>
+			</el-form-item>
+	
           <el-form-item label="所属分类" prop="category_id">
             <el-select
               v-model="formData.category_id"
