@@ -231,9 +231,7 @@ module.exports = {
       } = await dbJQL
         .collection("JLJ-mall-goods")
         .doc(_id)
-        .field(
-          `_id,category_id,name,sku,goods_desc,goods_banner_imgs,is_on_sale,is_hot`
-        )
+
         .get({
           getOne: true
         });

@@ -13,5 +13,5 @@ const clientInfo = {
 // detail({_id:"68858a956e5d2d42e6a782c7"})
 
 detail({
-  _id: "68bad11c189f86d5e1962cde"
+  _id: "681bc97f99c624aa844ad171"
 })

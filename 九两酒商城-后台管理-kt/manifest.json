@@ -85,7 +85,7 @@
     "template": "",
     "router": {
       "mode": "hash",
-      "base": "/admin/"
+      "base": "/ad/"
     },
     "uniStatistics": {
       "enable": true

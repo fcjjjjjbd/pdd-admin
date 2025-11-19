@@ -18,11 +18,11 @@ module.exports = {
   async list() {
     try {
       let cateTemp = dbJQL.collection("JLJ-mall-category")
-        .field(`_id ,name`)
+        .field(`_id ,name,sort`)
         .orderBy("sort asc")
         .getTemp();
       let goodsTemp = dbJQL.collection("JLJ-mall-goods")
-        .field(`_id ,name,category_id`)
+        .field(`_id ,name,category_id,sort`)
         .orderBy("sort asc")
 
         .getTemp();
@@ -65,7 +65,7 @@ module.exports = {
       } = await dbJQL
         .collection("JLJ-mall-goods")
         .doc(id)
-        .field("_id,sku")
+        .field("_id,sku,goods_desc")
         .get({
           getone: true,
         });

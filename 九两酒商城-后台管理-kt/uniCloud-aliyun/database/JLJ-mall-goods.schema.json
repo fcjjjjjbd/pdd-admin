@@ -22,9 +22,13 @@
       "title": "名称",
       "trim": "both"
     },
-    "sort":{
+    "sort": {
       "bsonType": "int",
       "description": "排序"
+    },
+    "dstype": {
+      "bsonType": "int",
+      "description": "无用"
     },
     "sku": {
       "bsonType": "array",

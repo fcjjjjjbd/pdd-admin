@@ -35,8 +35,7 @@ const formData = ref({
   goods_desc: "",
   goods_banner_imgs: [],
   sku: [skuItem()],
-  	sort:props.sort + 1,
-
+  sort: 99,
 });
 const categoryList = ref([]);
 
@@ -160,12 +159,14 @@ getCategory();
   <link rel="stylesheet" href="static/css/editor-style.css" />
   <view class="uni-container">
     <el-row>
-      <el-col :span="20" :offset="2">
+      <el-col :span="20" :offset="2" style="text-align: left;">
         <el-form
           ref="formRef"
           :model="formData"
           :rules="rules"
-          label-width="100"
+          label-width="70"
+          label-position="left"
+          style="text-align: left;"
         >
           <el-form-item label="商品名称" prop="name">
             <el-input v-model="formData.name" placeholder="请输入商品名称" />
@@ -199,7 +200,7 @@ getCategory();
 
           <el-form-item label="商品规格" prop="sku">
             <el-table :data="formData.sku" stripe border>
-              <el-table-column label="上门服务类型" width="220">
+              <el-table-column label="上门服务类型" width="220" align="left">
                 <template #default="scope">
                   <el-input
                     v-model="scope.row.name"
@@ -208,13 +209,13 @@ getCategory();
                 </template>
               </el-table-column>
 
-              <el-table-column label="原价">
+              <el-table-column label="原价" align="left">
                 <template #default="scope">
                   <el-input-number
                     :min="0.01"
                     v-model="scope.row.market_price"
                     placeholder="原价"
-                    :precision="2"
+                    :precision="0"
                   >
                     <template #prefix>
                       <text>￥</text>
@@ -229,7 +230,7 @@ getCategory();
                     :min="0.01"
                     v-model="scope.row.price"
                     placeholder="售价"
-                    :precision="2"
+                    :precision="0"
                   >
                     <template #prefix>
                       <text>￥</text>
